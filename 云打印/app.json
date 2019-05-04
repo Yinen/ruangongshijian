@@ -11,6 +11,7 @@
     "pages/orderSure/orderSure",
     "pages/myInfo/myInfo",
     "pages/myOrder/myOrder",
+    "pages/print-settings/print-settings",
     "pages/logs/logs"
   ],
   "window": {

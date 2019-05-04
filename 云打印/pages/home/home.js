@@ -22,8 +22,8 @@ Page({
 
   onFileTap: function() {
     wx.navigateTo({ //页面跳转myPosition
-      url: '../printIndex/printIndex'
-      //url: '../uploadFile/uploadFile'
+      //url: '../printIndex/printIndex'
+      url: '../uploadFile/uploadFile'
     });
   },
 

@@ -119,7 +119,7 @@ Page({
         price = parseFloat(res.data.data.price);
         wx.setStorageSync('price', price);
         wx.request({
-          url: 'http://120.77.32.233/print/get/current/file',
+          url: 'http://120.77.32.233/print/get/last/file',
           data: {},
           header: {
             'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ Page({
           },
           method: 'POST',
           success: function (res) {
-            console.log("fdfdjfkdkfjdkjfkdkf"+res.data)
+            console.log(res.data)
             if (res.data.data.page==0){
 
             }

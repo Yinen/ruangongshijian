@@ -43,7 +43,7 @@ Page({
     console.log(this.data.myPosition);
     //console.log(parseInt(this.data.pageNum));
     console.log(parseInt(this.data.copyNum));
-    console.log(isDelivery);
+    console.log(this.data.isDelivery);
 
     wx.request({
       url: 'http://120.77.32.233/print/order/add',
@@ -54,15 +54,15 @@ Page({
       data: {
         "name": this.data.name,
         "phone": this.data.phone,
-        "fileId": app.globalData.fileId,
+        "fileId": wx.getStorageSync('fileId'),
         "takeTime": this.data.date + ' ' + this.data.time + ':00',
         "college": this.data.schoolName,
         "shopAddress": this.data.positionName,
         "propertyId": wx.getStorageSync('propertyId'),
         "myAddress": this.data.myPosition,
-        "pageNum": this.data.pageNum,
+        "pageNum": wx.getStorageSync('pageNum'),
         "num": parseInt(this.data.copyNum),
-        "hasDelivery": isDelivery,
+        "hasDelivery": this.data.isDelivery,
         "note": this.data.remarks,
         "price": this.data.fee,
       },
@@ -88,9 +88,9 @@ Page({
               'paySign': res.data.data.paySign,
               'success': function(succ) {
                 console.log(succ);
-                wx.navigateTo({
-                  url: '../index/index'
-                })
+                wx.switchTab({
+                  url: '../home/home'
+                });
 
               },
               'fail': function(err) {
@@ -117,8 +117,8 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      name: wx.getStorageSync('humanName'),
-      phone: wx.getStorageSync('humanPhone'),
+      name: wx.getStorageSync('userName'),
+      phone: wx.getStorageSync('userPhone'),
       date: wx.getStorageSync('takeDate'),
       time: wx.getStorageSync('takeTime'),
       schoolName: wx.getStorageSync('schoolName'),
@@ -146,7 +146,7 @@ Page({
     })
     let total=this.data.pageNum*this.data.copyNum*this.data.price;
     this.setData({
-      fee:total,
+      fee: total.toFixed(2),
     })
     console.log(this.data.fee);
     console.log(this.data.fileId);

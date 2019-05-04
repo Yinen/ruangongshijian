@@ -1,0 +1,158 @@
+/**index.wxss**/
+
+.slide-image {
+  width: 100%;
+  height: 350rpx;
+}
+
+/**主页背景**/
+
+.index-page {
+  font-family: "幼圆";
+}
+
+/**取件人样式**/
+
+.user {
+  height: 56rpx;
+  width: 77%;
+  margin: 40rpx 70rpx;
+  padding: 0rpx;
+  border-bottom: 2rpx solid rgb(110, 157, 245);
+  font-family: "幼圆";
+}
+
+/**收件人名字样式**/
+
+.name {
+  float: left;
+}
+
+/**收件人手机号样式**/
+
+.phone {
+  float: left;
+}
+
+/**日期选择器的样式**/
+
+.date-style {
+  height: 56rpx;
+  width: 77%;
+  margin: 40rpx 70rpx;
+  padding: 10rpx;
+  border-bottom: 2rpx solid rgb(110, 157, 245);
+}
+
+/**时间选择器的样式**/
+
+.time-style {
+  height: 56rpx;
+  width: 77%;
+  margin: 40rpx 70rpx;
+  padding: 10rpx;
+  border-bottom: 2rpx solid rgb(110, 157, 245);
+}
+
+/**学校选择器的样式**/
+
+.school-style {
+  height: 56rpx;
+  width: 77%;
+  margin: 40rpx 70rpx;
+  padding: 10rpx;
+  border-bottom: 2rpx solid rgb(110, 157, 245);
+}
+
+/**添加文件的按钮样式**/
+
+.add-file {
+  font-size: 35rpx;
+  color: rgb(10, 5, 4);
+  border: 2rpx solid rgb(128, 212, 238);
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 0px;
+  height: 80rpx;
+  width: 35%;
+  line-height: 30rpx;
+  margin: 0rpx 0rpx 30rpx 68rpx;
+  display: table;
+  float: left;
+}
+
+.add-file text {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+/**选择取件地址的按钮样式**/
+
+.take-file-position {
+  font-size: 35rpx;
+  color: rgb(10, 5, 4);
+  border: 2rpx solid rgb(142, 217, 247);
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 0px;
+  height: 80rpx;
+  width: 35%;
+  line-height: 30rpx;
+  margin: 0rpx 0rpx 30rpx 68rpx;
+  display: table;
+  float: left;
+}
+
+.take-file-position text {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+/**取件地址显示文本的样式**/
+
+.position-text {
+  font-size: 30rpx;
+  color: black;
+  border: 0rpx solid #eb602e;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 0px;
+  height: 30rpx;
+  width: 80%;
+  line-height: 30rpx;
+  margin: 0rpx 0rpx 0rpx 70rpx;
+  display: table;
+  vertical-align: middle;
+}
+
+/**我的地址**/
+
+.myposition-style {
+  height: 56rpx;
+  width: 77%;
+  margin: 40rpx 70rpx;
+  padding: 10rpx;
+  border: 2rpx solid #eb602e;
+  border-radius: 20rpx;
+}
+
+/**下一步的按钮样式**/
+
+.next-page-btn {
+  font-size: 35rpx;
+  color: #eb602e;
+  border: 2rpx solid rgb(145, 124, 236);
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 0px;
+  height: 80rpx;
+  width: 80%;
+  line-height: 30rpx;
+  margin: 40rpx 0rpx 0rpx 68rpx;
+  display: table;
+}
+
+.next-page-btn text {
+  vertical-align: middle;
+  display: table-cell;
+}
