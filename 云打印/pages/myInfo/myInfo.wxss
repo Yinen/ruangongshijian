@@ -1,0 +1,185 @@
+.body-Info {
+  background-color: #fff;
+}
+
+.blank {
+  width: 100%;
+  height: 8%;
+}
+
+.head-Icon {
+  width: 100%;
+  height: 30%;
+  margin: 2% 0% 0% 0%;
+  border-bottom: 1rpx solid #b8b5b5;
+}
+
+.head-icon {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 2% 0% 2% 2%;
+}
+
+.icon-size {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 2% 0% 2% 2%;
+}
+
+.nickname {
+  width: 10%;
+  height: 2%;
+  position: absolute;
+  top: 2%;
+  bottom: 0%;
+  right: 0%;
+  left: 23%;
+}
+
+.phoneText {
+  width: 50%;
+  height: 4%;
+  position: absolute;
+  top: 7%;
+  bottom: 0%;
+  right: 0%;
+  left: 23%;
+}
+
+.showPnone {
+  width: 50%;
+  height: 4%;
+  position: absolute;
+  top: 7%;
+  bottom: 0%;
+  right: 0%;
+  left: 45%;
+}
+
+.sex {
+  width: 100%;
+  height: 30%;
+  position: absolute;
+}
+
+.sex image {
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin: 15rpx 20rpx;
+}
+
+.sex text {
+  float: left;
+  margin-top: 20rpx;
+  font-size: 42rpx;
+}
+
+.sex-value {
+  margin-left: 460rpx;
+}
+
+.line1 {
+  border-top: 1rpx solid #b8b5b5;
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 1rpx;
+}
+
+.country {
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  top: 20%;
+}
+
+.country image {
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin: 15rpx 20rpx;
+}
+
+.country text {
+  float: left;
+  margin-top: 20rpx;
+  font-size: 42rpx;
+}
+
+.country-value {
+  margin-left: 420rpx;
+}
+
+.line2 {
+  border-top: 1rpx solid #b8b5b5;
+  position: absolute;
+  top: 28%;
+  width: 100%;
+  height: 1rpx;
+}
+
+.province {
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  top: 29%;
+}
+
+.province image {
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin: 15rpx 20rpx;
+}
+
+.province text {
+  float: left;
+  margin-top: 20rpx;
+  font-size: 42rpx;
+}
+
+.province-value {
+  margin-left: 420rpx;
+}
+
+.line3 {
+  border-top: 1rpx solid #b8b5b5;
+  position: absolute;
+  top: 36%;
+  width: 100%;
+  height: 1rpx;
+}
+
+.city {
+  width: 100%;
+  height: 8%;
+  position: absolute;
+  top: 37%;
+  margin: 0rpx;
+}
+
+.city image {
+  width: 60rpx;
+  height: 60rpx;
+  float: left;
+  margin: 15rpx 20rpx;
+}
+
+.city text {
+  float: left;
+  margin-top: 20rpx;
+  font-size: 42rpx;
+}
+
+.city-value {
+  margin-left: 420rpx;
+}
+
+.line4 {
+  border-top: 1rpx solid #b8b5b5;
+  position: absolute;
+  top: 44%;
+  width: 100%;
+  height: 1rpx;
+}

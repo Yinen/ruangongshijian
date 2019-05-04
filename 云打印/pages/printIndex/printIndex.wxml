@@ -1,0 +1,106 @@
+<!--index.wxml-->
+<view class="index-page">
+
+  <!--轮播图组件-->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true" circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- <view bindtap='file'>wenjian</view> -->
+
+  <!--取件人姓名-->
+  <view class="user">
+    <view class="name">
+      <text>取件人：</text>
+    </view>
+    <view>
+      <input placeholder="请填写你的名字" name="userName" bindinput="userName" />
+    </view>
+  </view>
+  <!--取件人手机号-->
+  <view class="user">
+    <view class="phone">
+      <text style="width=20rpx">手机号：</text>
+    </view>
+    <view>
+      <input placeholder="请填写你的手机号" name="phone" bindinput="userPhone" />
+    </view>
+  </view>
+
+  <!--打印日期的选择-->
+  <view class="section">
+    <picker mode="date" value="{{date}}" start="2018-09-01" end="2020-09-01" bindchange="onDateChange" name="date" id="dateId">
+      <view class="date-style">
+        取件日期: {{date}}
+      </view>
+    </picker>
+  </view>
+
+  <!--打印时间的选择-->
+  <view class="section">
+    <picker mode="time" value="{{time}}" start="08:01" end="22:01" bindchange="onTimeChange" name="time">
+      <view class="time-style">
+        取件时间: {{time}}
+      </view>
+    </picker>
+  </view>
+
+  <!--学校名称-->
+  <view class="section">
+    <picker bindchange="onPickerChangeSchool" value="{{schoolIndex}}" range="{{schoolArray}}" name="school" bindtap="onSchoolChanged">
+      <view class="picker" class="school-style">
+        学校名称：{{schoolArray[schoolIndex]}}
+      </view>
+    </picker>
+  </view>
+
+  <!--打印店地址-->
+  <view class="section">
+    <picker bindchange="onPickerChangePrintPos" value="{{printShopIndex}}" range="{{printShopName}}" name="printShop">
+      <view class="picker" class="school-style">
+        打印店：{{printShopName[printShopIndex]}}
+      </view>
+    </picker>
+  </view>
+
+
+  <!-- <view class="button">
+    <view>
+      <button class="take-file-position" bindtap="onTakeFilePosition">
+        <text>选择取件地址</text>
+      </button>
+    </view>
+
+    <view class="upload-file">
+      <button bindtap="onAddFile" class="add-file">
+        <text>添加文件</text>
+      </button>
+    </view>
+  </view> -->
+
+  <!--弹出框，判断是否需要配送-->
+  <modal hidden="{{!hiddenmodalput}}" title="是否需要配送？" confirm-text="需要，谢谢" cancel-text="不了，谢谢" bindcancel="onCancel" bindconfirm="onConfirm">
+  </modal>
+
+  <!--弹出框，需要配送时选择我的地点-->
+  <modal hidden="{{hiddenSelectMyPos}}" title="选择你的地址" confirm-text="确定" cancel-text="取消" bindcancel="onCancelMyPosition" bindconfirm="onConfirmMyPosition">
+    <view class="section">
+      <picker bindchange="onSelectMyAddress" value="{{myAddressIndex}}" range="{{myAddressNameArray}}" name="myAddress">
+        <view class="myposition-style">
+          我的地址：{{myposArray[myPositionIndex]}}
+        </view>
+      </picker>
+    </view>
+  </modal>
+
+  <!--下一步-->
+  <view>
+    <button class="next-page-btn" bindtap="onNextPageButton">
+      <text>下一步</text>
+    </button>
+  </view>
+</view>

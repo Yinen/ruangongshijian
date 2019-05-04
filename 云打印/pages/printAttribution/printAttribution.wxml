@@ -1,0 +1,60 @@
+<!--pages/printAttribution/printAttribution.wxml-->
+
+<view class="print-attr-page">
+  <view class="print-attr-title">
+    <text>设置打印属性</text>
+  </view>
+  <!--纸张大小-->
+  <view class="section">
+    <picker bindchange="onPageTypeChange" value="{{pageIndex}}" range="{{pageSizeArray}}" name="pageSize">
+      <view class="page-size-style">
+        纸张大小：{{pageSizeArray[pageIndex]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="copy">
+    <view class="num">
+      <text>份数：</text>
+    </view>
+    <view class="input-num">
+      <input placeholder="打印的份数" auto-focus name="copies" bindinput="onCopies" />
+    </view>
+  </view>
+
+
+  <!--打印属性单双面-->
+  <view>
+    <radio-group class="radio-group" name="radioGroup" bindchange="onPageNumRadioChange">
+      <label>
+        <radio value="{{simple_page}}" checked="true" class="simple-radio" />{{simple_page}}
+      </label>
+      <label>
+        <radio value="{{double_page}}" class="double-radio" />{{double_page}}
+      </label>
+    </radio-group>
+  </view>
+
+  <!--打印属性黑白或者彩印-->
+  <view>
+    <radio-group class="radio-group" name="pagecolor" bindchange="onRadioChangeColor">
+      <label>
+        <radio value="{{black_white_page}}" checked="true" class="black-white-radio" />{{black_white_page}}
+      </label>
+      <label>
+        <radio value="{{coloured_page}}" class="coloured-radio" />{{coloured_page}}
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="note">
+    <input placeholder="填写备注......" auto-height="true" bindinput="onNote" class="input-info" type="text"></input>
+  </view>
+
+  <!--提交信息按钮-->
+  <view>
+    <button class="submit-message" bindtap="onSubmitMessage">
+      <text>提交</text>
+    </button>
+  </view>
+</view>

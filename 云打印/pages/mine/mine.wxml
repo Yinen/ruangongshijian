@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="header-group">
+    <view class="header">
+      <view class="header-icon">
+        <image src="{{headerUrl}}" class="images"></image>
+        <text class="header-name">{{nickName}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <view class="information">
+      <image src="/images/info.png"></image>
+      <text class="my-information" bindtap="onMyInformation">我的信息</text>
+      <view class="arrow"></view>
+    </view>
+
+    <view class="position">
+      <image src="/images/address.png"></image>
+      <text class="my-position" bindtap="onMyPosition">我的地址</text>
+      <view class="arrow"></view>
+    </view>
+
+    <view class="order">
+      <image src="/images/order.png"></image>
+      <text class="my-order" bindtap="onMyOrder">我的订单</text>
+      <view class="arrow"></view>
+    </view>
+
+    <view class="phone">
+      <image src="/images/phone.png"></image>
+      <text class="link-phone">联系客服(400-9057-333)</text>
+      <view class="arrow"></view>
+    </view>
+  </view>
+</view>

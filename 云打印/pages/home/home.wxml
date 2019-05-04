@@ -1,0 +1,29 @@
+<view>
+  <!--轮播图组件-->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots='true' circular='true'>
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 功能菜单界面 -->
+  <view class='Icon-group'>
+    <view>
+      <image src='{{iconUrls.docIcon}}' class='Icon' bindtap='onFileTap'></image>
+      <image src='{{iconUrls.imgIcon}}' class='Icon2'></image>
+      <image src='{{iconUrls.orderIcon}}' class='Icon3'></image>
+    </view>
+    <view class='image-text'>
+      <text class='Icon-text' bindtap='onFileTap'>文档打印</text>
+      <text class='Icon-text2'>图片打印</text>
+      <text class='Icon-text3'>历史订单</text>
+    </view>
+    <view class='image-text2'>
+      <image src='{{iconUrls.viewIcon}}' class='Icon4'></image>
+    </view>
+    <view>
+      <text class='Icon-text4'>扫一扫</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,69 @@
+<!--pages/orderSure/orderSure.wxml-->
+
+<view>
+  <view class="order-title">
+    <text>请确定你的订单信息</text>
+  </view>
+
+  <view class="common">
+    <text>姓名：{{name}}</text>
+  </view>
+
+  <view class="common">
+    <text>手机号：{{phone}}</text>
+  </view>
+
+  <view class="common">
+    <text>取件时间：{{date}}/{{time}}</text>
+  </view>
+
+  <view class="common">
+    <text>学校：{{schoolName}}</text>
+  </view>
+
+  <view class="common">
+    <text>打印店地址地点：{{positionName}}</text>
+  </view>
+
+  <view class="common">
+    <text>打印属性：{{pageSize}}，{{pageType}}，{{pageColor}}</text>
+  </view>
+
+  <view class="common">
+    <text>页数：{{pageNum}}</text>
+  </view>
+
+  <view class="common">
+    <text>份数：{{copyNum}}</text>
+  </view>
+
+  <view class="common">
+    <text>费用：{{fee}}元</text>
+  </view>
+
+  <view wx:if="{{isDelivery}}" class="common">
+    <text>我的地址：{{myPosition}}</text>
+  </view>
+
+  <view class="common">
+    <text>是否配送：{{sendSelect}}</text>
+  </view>
+
+  <view class="common">
+    <text disabled="true">备注：{{remarks}}</text>
+  </view>
+
+  <view>
+    <view>
+      <button class="message-sure" bindtap="onMessageSure">
+        <text>确定</text>
+      </button>
+    </view>
+    <view>
+      <button class="message-update" bindtap="onMessageUpdate">
+        <text>修改</text>
+      </button>
+    </view>
+  </view>
+
+</view>

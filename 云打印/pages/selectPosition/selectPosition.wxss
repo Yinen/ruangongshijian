@@ -1,0 +1,30 @@
+/* pages/selectPosition/selectPosition.wxss */
+
+/**打印店地址选择器的样式**/
+.position-style{
+  height:56rpx;
+  width: 95%;
+  margin:50rpx 10rpx;
+  padding: 10rpx;
+  border: 2rpx solid #EB602E;
+  border-radius: 20rpx;
+}
+
+/**选择打印点确定按钮的样式**/
+.position-sure{
+  font-size: 35rpx;
+  color: #EB602E;
+  border: 2rpx solid #EB602E;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 0px;
+  height:80rpx;
+  width: 80%;
+  line-height: 30rpx;
+  margin: 70rpx 0rpx 0rpx 68rpx;
+  display: table;
+}
+.position-sure text {
+  vertical-align:middle;
+  display: table-cell;
+}

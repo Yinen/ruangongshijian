@@ -1,0 +1,111 @@
+/* pages/printAttribution/printAttribution.wxss */
+
+.print-attr-title {
+  height: 56rpx;
+  font-family: "幼圆";
+  width: 77%;
+  margin: 40rpx 204rpx;
+  padding: 10rpx;
+  font-size: 50rpx;
+}
+
+/**打印页面大小样式**/
+
+.page-size-style {
+  height: 56rpx;
+  font-family: "幼圆";
+  width: 77%;
+  margin: 70rpx 70rpx;
+  padding: 0rpx;
+  border-bottom: 1rpx solid rgb(153, 150, 149);
+}
+
+.radio-group {
+  margin: 40rpx 100rpx 10rpx 73rpx;
+  padding: 0rpx;
+  border-bottom: 1rpx solid rgb(153, 150, 149);
+  font-size: 35rpx;
+  font-family: "幼圆";
+  width: 77%;
+}
+
+/**打印页面单双面样式**/
+
+.simple-radio {
+  margin: 20rpx 10rpx 15rpx 2rpx;
+  padding: 0rpx 20rpx;
+}
+
+.double-radio {
+  margin: 15rpx 10rpx 15rpx 15rpx;
+  padding: 0rpx 20rpx;
+}
+
+/**打印黑白或彩色样式**/
+
+.black-white-radio {
+  margin: 15rpx 10rpx 15rpx 2rpx;
+  padding: 0rpx 20rpx;
+}
+
+.coloured-radio {
+  margin: 15rpx 10rpx 15rpx 15rpx;
+  padding: 0rpx 20rpx;
+}
+
+/**份数样式**/
+
+.copy {
+  font-family: "幼圆";
+  height: 56rpx;
+  width: 77%;
+  margin: 40rpx 70rpx;
+  padding: 0rpx;
+  border-bottom: 1rpx solid rgb(153, 150, 149);
+}
+
+.num {
+  float: left;
+}
+
+.input-num {
+  height: 56rpx;
+}
+
+/**备注样式**/
+
+.note {
+  color: rgb(15, 14, 13);
+  border-bottom: 1rpx solid rgb(153, 150, 149);
+  background-color: #fff;
+  height: 80rpx;
+  line-height: 30rpx;
+  width: 77%;
+  margin: 60rpx 0rpx 0rpx 75rpx;
+  display: table;
+}
+
+/**提交按钮的样式**/
+
+.submit-message {
+  font-size: 35rpx;
+  color: rgb(85, 82, 81);
+  border: 2rpx solid rgb(146, 142, 141);
+  background-color: rgba(233, 218, 218, 0.849);
+  border-radius: 20rpx;
+  padding: 0px;
+  height: 80rpx;
+  width: 80%;
+  line-height: 30rpx;
+  margin: 70rpx 0rpx 0rpx 68rpx;
+  font-family: "幼圆";
+  display: table;
+}
+
+.submit-message text {
+  vertical-align: middle;
+  display: table-cell;
+  background: #7a67ee;
+  color: #fff;
+  font-size: 50rpx;
+}

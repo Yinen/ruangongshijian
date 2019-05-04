@@ -1,0 +1,91 @@
+.wrapper {
+  background-image: url('http://pic27.photophoto.cn/20130423/0034034888017282_b.jpg');
+}
+
+.book-info {
+  border-top: 1rpx solid #eee;
+  padding-bottom: 50rpx;
+  text-align: center;
+}
+
+.cover {
+  margin: 210rpx auto 0 auto;
+  width: 305rpx;
+  height: 235rpx;
+  overflow: hidden;
+  color: #fff;
+  font-size: 62rpx;
+}
+
+.cover > image {
+  width: 235rpx;
+  height: 235rpx;
+}
+
+.title {
+  margin-top: 50rpx;
+}
+
+.author {
+  margin-top: 10rpx;
+}
+
+.container-agreement {
+  padding-bottom: 200rpx;
+  font-size: 32rpx;
+  color: #333;
+  line-height: 1.25rem;
+}
+
+.user-agree {
+  color: #f13636;
+}
+
+.tips {
+  font-size: 42rpx;
+  width: 620rpx;
+  margin: 50rpx auto 0 auto;
+  padding: 20rpx;
+  text-align: center;
+  background: #f4f5f7;
+  border-radius: 8rpx;
+}
+
+.tips view {
+  margin-top: 5rpx;
+}
+
+.info {
+  margin-top: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.agreement-text {
+  width: 620rpx;
+  padding: 20rpx;
+  margin: 30rpx auto 0 auto;
+  background: #f4f5f7;
+}
+
+.btn-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150rpx;
+  background: #fff;
+  border-top: 1rpx solid #eee;
+}
+
+.btn-size {
+  margin: 30rpx 50rpx 0 50rpx;
+}
+
+.btn-box button {
+  background: #6a5acd;
+  color: #fff;
+}

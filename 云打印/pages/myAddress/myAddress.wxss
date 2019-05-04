@@ -1,0 +1,85 @@
+.slide-image {
+  width: 100%;
+  height: 350rpx;
+}
+
+.add-position {
+  border: 2rpx solid rgb(119, 117, 116);
+  background-color: rgb(255, 255, 255);
+  opacity: 0.5;
+  height: 80rpx;
+  width: 680rpx;
+  padding: 10rpx;
+  margin: 30rpx;
+}
+
+.add-position text {
+  vertical-align: middle;
+  display: table-cell;
+  background: #836fff;
+}
+
+/**查看默认地址按钮**/
+
+.check-default-position {
+  font-size: 35rpx;
+  color: rgb(49, 47, 46);
+  border: 2rpx solid rgb(119, 117, 116);
+  background-color: rgb(224, 233, 227);
+  padding: 0px;
+  height: 80rpx;
+  width: 50%;
+  line-height: 30rpx;
+  margin-top: 30rpx;
+  display: table;
+  float: left;
+}
+
+.check-default-position text {
+  vertical-align: middle;
+  display: table-cell;
+  background: #7ccd7c;
+}
+
+.mySchool-style {
+  height: 56rpx;
+  width: 77%;
+  margin: 40rpx 70rpx;
+  padding: 10rpx;
+  border: 2rpx solid #eb602e;
+  border-radius: 20rpx;
+}
+
+/**地址列表的样式**/
+
+.positions-show {
+  background-color: rgb(231, 231, 130);
+  width: 100%;
+  height: 100rpx;
+}
+
+.positions {
+  border-bottom: 1rpx solid rgb(196, 190, 188);
+  width: 100%;
+  height: 70rpx;
+  padding: 30rpx 0rpx 0rpx 0rpx;
+}
+
+.positions text {
+  margin-top: 12rpx;
+  font-family: "幼圆";
+  font-size: 36rpx;
+}
+
+.add-position-icon{
+  width: 60rpx;
+  height: 60rpx;
+  padding: 10rpx 310rpx;
+}
+
+.image-style {
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 0 20rpx;
+}

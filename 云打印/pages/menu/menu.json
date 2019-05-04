@@ -1,0 +1,8 @@
+
+  {
+    "navigationBarTitleText": "主页",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50,
+    "disableScroll": false
+  }

@@ -1,0 +1,5 @@
+/* pages/upload/upload.wxss */
+.upload-file{
+  width: 350rpx;
+  height: 60rpx;
+}
