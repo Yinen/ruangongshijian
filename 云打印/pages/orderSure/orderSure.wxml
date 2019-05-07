@@ -61,7 +61,7 @@
     </view>
     <view>
       <button class="message-update" bindtap="onMessageUpdate">
-        <text>修改</text>
+        <text>取消</text>
       </button>
     </view>
   </view>

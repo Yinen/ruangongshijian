@@ -7,7 +7,7 @@ Page({
     imgUrls: [
       '/images/1.jpg',
       '/images/2.jpg',
-      '/images/3.jpg'
+      '/images/111.jpg'
     ],
     indicatorDots: false,
     autoplay: true,

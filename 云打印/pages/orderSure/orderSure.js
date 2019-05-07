@@ -106,9 +106,9 @@ Page({
   },
 
   //修改按钮的监听事件
-  onMssageUpdate: function() {
+  onMessageUpdate: function() {
     wx.switchTab({ //页面跳转index
-      url: '/pages/printIndex/printIndex',
+      url: '/pages/home/home',
     })
   },
 

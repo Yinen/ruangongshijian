@@ -6,38 +6,12 @@ const APP_SECRET = '';//输入小程序app_secret
 let OPEN_ID = ''//储存获取到openid
 let SESSION_KEY = ''//储存获取到session_key
 
-let schoolArr = [];
-let schoolnum = [];
-
-let myPos = [];
-let myPosId = [];
-let defaultMyPos = '';
-let defaultMyPosId = '';
 
 App({
   data: {
     //openId
     openId: OPEN_ID,
     session_key: SESSION_KEY,
-
-    //学校信息
-    schoolArray: schoolArr,
-    schoolId: schoolnum,
-
-    //学校打印店位置信息
-    positionArray: [],
-    positionId: [],
-    sendServce: [],
-    printPosition: '',
-    printShopId: '',
-    isSend: '',
-    isPrintPos: 'false',
-
-    //我的地址信息
-    myPosition: myPos,
-    myPositionId: myPosId,
-    defaultMyPosition: defaultMyPos,
-    defaultMyPositionId: defaultMyPosId,
 
     //我的订单
     myMenu: [],
@@ -78,25 +52,6 @@ App({
               success: function (res) {
                 //服务器返回数据sessionid
                 wx.setStorageSync('sessionid', res.header['Set-Cookie']);
-
-                
-
-                //请求我的默认地址
-                wx.request({
-                  url: 'http://120.77.32.233/print/address/get/default',
-                  method: 'POST',
-                  header: {
-                    'Content-Type': 'application/json',
-                    'cookie': wx.getStorageSync('sessionid')//读取cookie
-                  },
-                  success: function (res) {
-                    //服务器返回学校数据信息
-                    console.log('defaultPosition')
-                    console.log(res.data);
-                    defaultMyPos = res.data.data.address;
-                    defaultMyPosId = res.data.data.id;
-                  }
-                })
               },
               fail: function (res) {
                 wx.showModal({

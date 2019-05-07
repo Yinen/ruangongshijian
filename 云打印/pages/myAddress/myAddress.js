@@ -12,9 +12,9 @@ Page({
   data: {
     //轮播图组件的数据
     imgUrls: [
-      '/images/11.jpg',
-      '/images/dataSchool7.png',
-      '/images/one_page.jpg'
+      '/images/1.jpg',
+      '/images/111.jpg',
+      '/images/2.jpg'
     ],
     indicatorDots: false,
     autoplay: true,
