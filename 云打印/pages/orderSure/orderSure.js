@@ -2,7 +2,7 @@
 // 在需要使用的js文件中，导入js
 //获取应用实例
 const app = getApp()
-let util = require('../../utils/util.js');
+let util = require("../../utils/util.js");
 
 Page({
 
@@ -10,96 +10,98 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '',
-    phone: '',
-    date: '',
-    time: '',
-    schoolName: '',
-    positionName: '',
-    pageSize: '',
-    pageType: '',
-    pageColor: '',
-    pageNum: '',
-    myPosition: '',
-    remarks: '',
-    copyNum: '',
+    name: "",
+    phone: "",
+    date: "",
+    time: "",
+    schoolName: "",
+    positionName: "",
+    pageSize: "",
+    pageType: "",
+    pageColor: "",
+    pageNum: "",
+    myPosition: "",
+    remarks: "",
+    copyNum: "",
+    priority: "",
+    bind: "",
     fee: 0.0,
-    price:0.0,
-    sendSelect: '',
+    price: 0.0,
+    sendSelect: "",
     fileId: 0,
-    isDelivery:false,
+    isDelivery: false,
   },
 
   //确定按钮的监听事件
   onMessageSure: function() {
-    console.log(this.data.date + ' ' + this.data.time + ':00');
+    console.log(this.data.date + " " + this.data.time + ":00");
     //提交订单各个信息
-    console.log(wx.getStorageSync('nickName'));
-    console.log(wx.getStorageSync('phone'));
-    console.log(this.data.date + ' ' + this.data.time + ':00');
+    console.log(wx.getStorageSync("nickName"));
+    console.log(wx.getStorageSync("phone"));
+    console.log(this.data.date + " " + this.data.time + ":00");
     console.log(this.data.schoolName);
     console.log(this.data.positionName);
-    console.log(wx.getStorageSync('propertyId'));
+    console.log(wx.getStorageSync("propertyId"));
     console.log(this.data.myPosition);
     //console.log(parseInt(this.data.pageNum));
     console.log(parseInt(this.data.copyNum));
     console.log(this.data.isDelivery);
 
     wx.request({
-      url: 'http://120.77.32.233/print/order/add',
+      url: "http://120.77.32.233/print/order/add",
       header: {
-        'Content-Type': 'application/json',
-        'cookie': wx.getStorageSync('sessionid') //读取cookie
+        "Content-Type": "application/json",
+        "cookie": wx.getStorageSync("sessionid") //读取cookie
       },
       data: {
+        "fileId": wx.getStorageSync("fileId"),
         "name": this.data.name,
         "phone": this.data.phone,
-        "fileId": wx.getStorageSync('fileId'),
-        "takeTime": this.data.date + ' ' + this.data.time + ':00',
+        "takeTime": this.data.date + " " + this.data.time + ":00",
         "college": this.data.schoolName,
         "shopAddress": this.data.positionName,
-        "propertyId": wx.getStorageSync('propertyId'),
+        "propertyId": wx.getStorageSync("propertyId"),
         "myAddress": this.data.myPosition,
-        "pageNum": wx.getStorageSync('pageNum'),
+        "pageNum": wx.getStorageSync("pageNum"),
         "num": parseInt(this.data.copyNum),
         "hasDelivery": this.data.isDelivery,
         "note": this.data.remarks,
         "price": this.data.fee,
+        "priority": wx.getStorageSync("priority"),
+        "bind": wx.getStorageSync("bind")
       },
-      method: 'POST',
+      method: "POST",
       success: function(res) {
         console.log(res);
         //跳转支付界面
         wx.request({
-          url: 'http://120.77.32.233/print/pay/order/' + res.data.data,
+          url: "http://120.77.32.233/print/pay/order/" + res.data.data,
 
           header: {
-            'Content-Type': 'application/json',
-            'cookie': wx.getStorageSync('sessionid') //读取cookie
+            "Content-Type": "application/json",
+            "cookie": wx.getStorageSync("sessionid") //读取cookie
           },
-          method: 'POST',
+          method: "POST",
           success: function(res) {
             console.log(res);
             wx.requestPayment({
-              'timeStamp': res.data.data.timeStamp,
-              'nonceStr': res.data.data.nonceStr,
-              'package': res.data.data.package,
-              'signType': res.data.data.signType,
-              'paySign': res.data.data.paySign,
-              'success': function(succ) {
+              "timeStamp": res.data.data.timeStamp,
+              "nonceStr": res.data.data.nonceStr,
+              "package": res.data.data.package,
+              "signType": res.data.data.signType,
+              "paySign": res.data.data.paySign,
+              "success": function(succ) {
                 console.log(succ);
                 wx.switchTab({
-                  url: '../home/home'
+                  url: "../home/home"
                 });
-
               },
-              'fail': function(err) {
+              "fail": function(err) {
                 console.log(err);
               },
             })
           }
         })
-
       }
     })
 
@@ -108,7 +110,7 @@ Page({
   //修改按钮的监听事件
   onMessageUpdate: function() {
     wx.switchTab({ //页面跳转index
-      url: '/pages/home/home',
+      url: "/pages/home/home",
     })
   },
 
@@ -117,38 +119,43 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      name: wx.getStorageSync('userName'),
-      phone: wx.getStorageSync('userPhone'),
-      date: wx.getStorageSync('takeDate'),
-      time: wx.getStorageSync('takeTime'),
-      schoolName: wx.getStorageSync('schoolName'),
-      positionName: wx.getStorageSync('positionName'),
-      pageSize: wx.getStorageSync('pageSize'),
-      pageType: wx.getStorageSync('pageType'),
-      pageColor: wx.getStorageSync('pageColor'),
-      pageNum: wx.getStorageSync('pageNum'),
-      myPosition: wx.getStorageSync('myPosition'),
-      remarks: wx.getStorageSync('remarks'),
-      copyNum: wx.getStorageSync('copyNum'),
-      price: wx.getStorageSync('price'),
-      fileId: wx.getStorageSync('fileId'),
-      sendSelect: wx.getStorageSync('sendSelect'),
-      //fee: wx.getStorageSync('fee'),
+      name: wx.getStorageSync("userName"),
+      phone: wx.getStorageSync("userPhone"),
+      date: wx.getStorageSync("takeDate"),
+      time: wx.getStorageSync("takeTime"),
+      schoolName: wx.getStorageSync("schoolName"),
+      positionName: wx.getStorageSync("positionName"),
+      pageSize: wx.getStorageSync("pageSize"),
+      pageType: wx.getStorageSync("pageType"),
+      pageColor: wx.getStorageSync("pageColor"),
+      pageNum: wx.getStorageSync("pageNum"),
+      myPosition: wx.getStorageSync("myPosition"),
+      remarks: wx.getStorageSync("remarks"),
+      copyNum: wx.getStorageSync("copyNum"),
+      priority: wx.getStorageSync("priority"),
+      bind: wx.getStorageSync("bind"),
+      price: wx.getStorageSync("price"),
+      fileId: wx.getStorageSync("fileId"),
+      sendSelect: wx.getStorageSync("sendSelect"),
     });
     let temp;
-    if (this.data.sendSelect === '配送') {
+    if (this.data.sendSelect === "配送") {
       temp = true;
-    } else if (this.data.sendSelect === '不配送') {
+    } else if (this.data.sendSelect === "不配送") {
       temp = false;
     }
     this.setData({
       isDelivery: temp,
-    })
-    let total=this.data.pageNum*this.data.copyNum*this.data.price;
+    });
+    let total = 0;
+    if (this.data.priority === 1) {
+      total = this.data.pageNum * this.data.copyNum * this.data.price;
+    } else {
+      total = this.data.pageNum * this.data.copyNum * this.data.price + (this.data.priority - 1) * 1;
+    }
     this.setData({
       fee: total.toFixed(2),
-    })
+    });
     console.log(this.data.fee);
-    console.log(this.data.fileId);
   }
 })

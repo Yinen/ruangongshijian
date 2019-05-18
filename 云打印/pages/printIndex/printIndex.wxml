@@ -1,6 +1,4 @@
-<!--index.wxml-->
 <view class="index-page">
-
   <!--轮播图组件-->
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-dots="true" circular="true">
     <block wx:for="{{imgUrls}}" wx:key="*this">
@@ -9,8 +7,6 @@
       </swiper-item>
     </block>
   </swiper>
-
-  <!-- <view bindtap='file'>wenjian</view> -->
 
   <!--取件人姓名-->
   <view class="user">
@@ -67,31 +63,16 @@
     </picker>
   </view>
 
-
-  <!-- <view class="button">
-    <view>
-      <button class="take-file-position" bindtap="onTakeFilePosition">
-        <text>选择取件地址</text>
-      </button>
-    </view>
-
-    <view class="upload-file">
-      <button bindtap="onAddFile" class="add-file">
-        <text>添加文件</text>
-      </button>
-    </view>
-  </view> -->
-
   <!--弹出框，判断是否需要配送-->
   <modal hidden="{{!hiddenmodalput}}" title="是否需要配送？" confirm-text="需要，谢谢" cancel-text="不了，谢谢" bindcancel="onCancel" bindconfirm="onConfirm">
   </modal>
 
   <!--弹出框，需要配送时选择我的地点-->
-  <modal hidden="{{hiddenSelectMyPos}}" title="选择你的地址" confirm-text="确定" cancel-text="取消" bindcancel="onCancelMyPosition" bindconfirm="onConfirmMyPosition">
+  <modal hidden="{{hiddenSelectMyPos}}" title="选择你的地址" confirm-text="确定" cancel-text="取消" bindcancel="onCancelMyAddress" bindconfirm="onConfirmMyAddress">
     <view class="section">
       <picker bindchange="onSelectMyAddress" value="{{myAddressIndex}}" range="{{myAddressNameArray}}" name="myAddress">
         <view class="myposition-style">
-          我的地址：{{myposArray[myPositionIndex]}}
+          我的地址：{{myAddressArray[myAddressIndex].address}}
         </view>
       </picker>
     </view>

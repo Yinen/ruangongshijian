@@ -1,18 +1,17 @@
 {
   "pages": [
-    "pages/mine/mine",
-    "pages/myAddress/myAddress",
-    "pages/grantEntre/grantEntre",
     "pages/home/home",
-    "pages/printIndex/printIndex",
-    "pages/selectPosition/selectPosition",
     "pages/uploadFile/uploadFile",
+    "pages/printIndex/printIndex",
     "pages/printAttribution/printAttribution",
     "pages/orderSure/orderSure",
+    "pages/mine/mine",
+    "pages/selectPosition/selectPosition",
     "pages/myInfo/myInfo",
+    "pages/myAddress/myAddress",
     "pages/myOrder/myOrder",
     "pages/print-settings/print-settings",
-    "pages/logs/logs"
+    "pages/grantEntre/grantEntre"
   ],
   "window": {
     "backgroundTextStyle": "light",

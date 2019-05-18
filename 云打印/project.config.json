@@ -15,6 +15,8 @@
 	"appid": "wx828671bfb24c2981",
 	"projectname": "%E8%B6%A3%E5%8D%B0",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -33,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -44,58 +46,22 @@
 				},
 				{
 					"id": -1,
-					"name": "mine",
-					"pathName": "pages/mine/mine",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "printAttribution",
-					"pathName": "pages/printAttribution/printAttribution",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "orderSure",
-					"pathName": "pages/orderSure/orderSure",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "myPosition",
-					"pathName": "pages/myPosition/myPosition",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "myinfo",
-					"pathName": "pages/myInformation/myInformation",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "mymenu",
-					"pathName": "pages/myMenu/myMenu",
-					"query": ""
-				},
-				{
-					"id": 7,
-					"name": "show",
-					"pathName": "pages/home/home",
+					"name": "printIndex",
+					"pathName": "pages/printIndex/printIndex",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "up",
-					"pathName": "pages/upload/upload",
-					"query": ""
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "uploadFile",
-					"pathName": "pages/uploadFile/uploadFile",
-					"query": "",
+					"name": "printAttr",
+					"pathName": "pages/printAttribution/printAttribution",
 					"scene": null
 				}
 			]

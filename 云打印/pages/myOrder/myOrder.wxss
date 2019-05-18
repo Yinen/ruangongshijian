@@ -47,10 +47,12 @@ modal {
 
 .info-menu {
   padding-top: 3%;
+  margin-left: 20rpx;
 }
 
 .info-menu-price {
   padding-bottom: 3%;
+  margin-left: 20rpx;
 }
 
 .text-size {

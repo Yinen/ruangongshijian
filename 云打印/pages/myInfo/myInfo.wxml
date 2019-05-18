@@ -1,53 +1,51 @@
-<view class='body-Info'>
-  <view class='blank'></view>
-  <view class='head-Icon'>
-    <view class='head-icon'>
-      <image mode="scaleToFill" src="{{imageUrl}}" class='icon-size'></image>
+<view class="body-Info">
+  <view class="blank"></view>
+  <view class="head-Icon">
+    <view class="head-icon">
+      <image mode="scaleToFill" src="{{imageUrl}}" class="icon-size"></image>
     </view>
-    <view class='nickname'>
+    <view class="nickname">
       <text>{{nickName}}</text>
     </view>
-    <view class='phoneText'>手机号：</view>
-    <view class='showPnone'>
+    <view class="phoneText">手机号：</view>
+    <view class="showPnone">
       <text>{{phone}}</text>
     </view>
   </view>
 
   <view>
-    <view class='sex'>
+    <view class="sex">
       <image src="/images/gender.png"></image>
       <text>性别</text>
-      <text class='sex-value'>{{gender}}</text>
+      <text class="sex-value">{{gender}}</text>
     </view>
   </view>
-
-  <view class='line1'></view>
+  <view class="line1"></view>
 
   <view>
-    <view class='country'>
+    <view class="country">
       <image src="/images/country.png"></image>
       <text>国家</text>
-      <text class='country-value'>{{country}}</text>
+      <text class="country-value">{{country}}</text>
     </view>
   </view>
-
-  <view class='line2'></view>
+  <view class="line2"></view>
 
   <view>
-    <view class='province'>
+    <view class="province">
       <image src="/images/province.png"></image>
       <text>省份</text>
-      <text class='province-value'>{{province}}</text>
+      <text class="province-value">{{province}}</text>
     </view>
   </view>
-  <view class='line3'></view>
+  <view class="line3"></view>
 
   <view>
-    <view class='city'>
+    <view class="city">
       <image src="/images/city.png"></image>
       <text>城市</text>
-      <text class='city-value'>{{city}}</text>
+      <text class="city-value">{{city}}</text>
     </view>
   </view>
-  <view class='line4'></view>
+  <view class="line4"></view>
 </view>

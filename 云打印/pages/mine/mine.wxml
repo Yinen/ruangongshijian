@@ -1,4 +1,5 @@
 <view class="page">
+  <!-- 头像和昵称 -->
   <view class="header-group">
     <view class="header">
       <view class="header-icon">
@@ -9,24 +10,25 @@
   </view>
 
   <view>
+    <!-- 我的信息 -->
     <view class="information">
       <image src="/images/info.png"></image>
       <text class="my-information" bindtap="onMyInformation">我的信息</text>
       <view class="arrow"></view>
     </view>
-
+    <!-- 我的地址 -->
     <view class="position">
       <image src="/images/address.png"></image>
-      <text class="my-position" bindtap="onMyPosition">我的地址</text>
+      <text class="my-position" bindtap="onMyAddress">我的地址</text>
       <view class="arrow"></view>
     </view>
-
+    <!-- 我的订单 -->
     <view class="order">
       <image src="/images/order.png"></image>
       <text class="my-order" bindtap="onMyOrder">我的订单</text>
       <view class="arrow"></view>
     </view>
-
+    <!-- 联系客服 -->
     <view class="phone">
       <image src="/images/phone.png"></image>
       <text class="link-phone">联系客服(400-9057-333)</text>

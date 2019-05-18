@@ -13,8 +13,8 @@ Page({
     //轮播图组件的数据
     imgUrls: [
       '/images/1.jpg',
-      '/images/111.jpg',
-      '/images/2.jpg'
+      '/images/2.jpg',
+      '/images/3.jpg'
     ],
     indicatorDots: false,
     autoplay: true,
@@ -74,8 +74,7 @@ Page({
       clickAddressName: e.currentTarget.dataset.name,
       clickAddressIndex: e.currentTarget.dataset.value,
       hiddenClickList: false,
-    })
-    //console.log(this.data.clickAddressName+this.data.clickAddressIndex)
+    });
   },
 
   onDefaultconfirm: function () {

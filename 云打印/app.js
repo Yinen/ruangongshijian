@@ -1,18 +1,15 @@
 //app.js
 const app = getApp();
-
-const APP_ID = '';//输入小程序appid
-const APP_SECRET = '';//输入小程序app_secret
-let OPEN_ID = ''//储存获取到openid
-let SESSION_KEY = ''//储存获取到session_key
-
+const APP_ID = "";//输入小程序appid
+const APP_SECRET = "";//输入小程序app_secret
+let OPEN_ID = ""//储存获取到openid
+let SESSION_KEY = ""//储存获取到session_key
 
 App({
   data: {
     //openId
     openId: OPEN_ID,
     session_key: SESSION_KEY,
-
     //我的订单
     myMenu: [],
   },
@@ -25,54 +22,50 @@ App({
         });
         wx.request({
           //获取openid接口
-          url: 'http://120.77.32.233/print/wechat/get/' + res.code,
+          url: "http://120.77.32.233/print/wechat/get/" + res.code,
           data: {},
-          method: 'POST',
+          method: "POST",
           success: function (res) {
             console.log(res.data)
             OPEN_ID = res.data.openid;//获取到的openid
             SESSION_KEY = res.data.session_key;//获取到session_key
-            wx.setStorageSync('openId', OPEN_ID);
-            wx.setStorageSync('session_key', SESSION_KEY);
-
+            wx.setStorageSync("openId", OPEN_ID);
+            wx.setStorageSync("session_key", SESSION_KEY);
             //登录接口
             wx.request({
-              url: 'http://120.77.32.233/print/user/login',
+              url: "http://120.77.32.233/print/user/login",
               data: {
                 openId: res.data.openid,
                 phone: "123456789",
-                nickName: '11',
-                avatarUrl: '11',
-                gender: '11',
-                city: '1',
-                province: '1',
-                country: '111'
+                nickName: "11",
+                avatarUrl: "11",
+                gender: "11",
+                city: "1",
+                province: "1",
+                country: "111"
               },
-              method: 'POST',
+              method: "POST",
               success: function (res) {
                 //服务器返回数据sessionid
-                wx.setStorageSync('sessionid', res.header['Set-Cookie']);
+                wx.setStorageSync("sessionid", res.header["Set-Cookie"]);
               },
               fail: function (res) {
                 wx.showModal({
-                  title: '提示',
+                  title: "提示",
                   showCancel: false,
-                  content: '登录失败',
+                  content: "登录失败",
                   success: function (res) { }
                 })
               }
             })
-
           }
         })
       }
     })
-
     // 展示本地存储能力
-    let logs = wx.getStorageSync('logs') || []
+    let logs = wx.getStorageSync("logs") || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
+    wx.setStorageSync("logs", logs)
     // 登录
     wx.login({
       success: res => {
@@ -82,7 +75,7 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
-        if (res.authSetting['scope.userInfo']) {
+        if (res.authSetting["scope.userInfo"]) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -100,15 +93,13 @@ App({
       }
     })
   },
-  onShow: function () {
-  },
   globalData: {
     myMenuNum: 1,
     //文件信息
-    fileId: ' ',
-    fileName: ' ',
-    fileSize: ' ',
-    userId: ' ',
+    fileId: " ",
+    fileName: " ",
+    fileSize: " ",
+    userId: " ",
     filePage: 0,
     filemask: true,
   }

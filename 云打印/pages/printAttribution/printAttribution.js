@@ -15,9 +15,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
     //纸张大小
-    pageSizeArray: ['A4', 'A3'],
+    pageSizeArray: ['A4', 'A3', 'B5', '16开'],
     pageIndex: 0,
 
     //单双面
@@ -33,6 +32,13 @@ Page({
     //份数
     copyNum: 1,
 
+    //优先级数
+    priority: 1,
+
+    //装订方式
+    bindArray: ['不装订', '左上角装订，1个钉子', '左侧装订，2个钉子', '左侧装订，3个钉子', '正上侧装订，2个钉子', '正上侧装订，3个钉子'],
+    bindIndex: 0,
+
     //备注
     remarks: '',
 
@@ -40,16 +46,13 @@ Page({
 
   //纸张大小改变事件
   onPageTypeChange: function(e) {
-    //console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       pageIndex: e.detail.value,
-    })
-    //console.log('picker发送选择改变，携带值为', this.data.pageSizeArray[this.data.pageIndex])
+    });
   },
 
   //单面或者双面的单选框改变事件
   onPageNumRadioChange: function(e) {
-    console.log('radio发送选择改变，携带值为', e.detail.value);
     if (e.detail.value === '0') {
       num = 0;
     } else {
@@ -57,12 +60,11 @@ Page({
     }
     this.setData({
       pageNumType: e.detail.value
-    })
+    });
   },
 
   //黑白或者彩印的单选框
   onRadioChangeColor: function(e) {
-    console.log('radio发送选择改变，携带值为', e.detail.value);
     if (e.detail.value === '0') {
       color = 0;
     } else {
@@ -70,16 +72,55 @@ Page({
     }
     this.setData({
       pageColor: e.detail.value
-    })
+    });
   },
 
   //份数监听
   onCopies: function(e) {
-    console.log('份数input发送选择改变，携带值为', e.detail.value)
     this.setData({
       copyNum: parseInt(e.detail.value)
-    })
+    });
     copies = this.data.copyNum;
+  },
+
+  //优先级数监听
+  onPriority:function(e){
+    this.setData({
+      priority: parseInt(e.detail.value)
+    });
+  },
+
+  onAdd: function () {
+    num = this.data.priority;
+    if(num >= 10){
+      num = 10;
+    }
+    else{
+      num++;
+    }
+    this.setData({
+      priority: num
+    });
+  },
+
+  onSub:function(e){
+    num = this.data.priority;
+    if (num <= 1) {
+      num = 1;
+    }
+    else {
+      num--;
+    }
+    this.setData({
+      priority: num
+    });
+  },
+
+  //装订方式
+  onBindChange: function (e) {
+    this.setData({
+      bindIndex: e.detail.value,
+    });
   },
 
   //备注监听
@@ -87,7 +128,7 @@ Page({
     console.log('备注发送选择改变，携带值为', e.detail.value)
     this.setData({
       remarks: e.detail.value,
-    })
+    });
   },
 
   //提交按钮监听事件
@@ -96,15 +137,17 @@ Page({
     wx.setStorageSync('pageSize', this.data.pageSizeArray[this.data.pageIndex]);
     wx.setStorageSync('pageType', this.data.pageNumType);
     wx.setStorageSync('pageColor', this.data.pageColor);
-    wx.setStorageSync('remarks', this.data.remarks);
     wx.setStorageSync('copyNum', this.data.copyNum);
+    wx.setStorageSync('priority', this.data.priority);
+    wx.setStorageSync('bind', this.data.bindArray[this.data.bindIndex]);
+    wx.setStorageSync('remarks', this.data.remarks);
 
     wx.request({
       url: 'http://120.77.32.233/print/property/get',
       data: {
         typePaper: this.data.pageSizeArray[this.data.pageIndex],
         hascolor: color,
-        hasdouble: num,
+        hasdouble: num
       },
       header: {
         'Content-Type': 'application/json',
@@ -115,7 +158,7 @@ Page({
         //服务器返回数据
         console.log(res);
         wx.setStorageSync('propertyId', res.data.data.id);
-        copies = parseFloat(copies);
+        copies = parseInt(copies);
         price = parseFloat(res.data.data.price);
         wx.setStorageSync('price', price);
         wx.request({
@@ -129,37 +172,19 @@ Page({
           success: function (res) {
             console.log(res.data)
             if (res.data.data.page==0){
-
             }
             else{
               pagenum = parseFloat(res.data.data.page);
               wx.setStorageSync('pageNum', res.data.data.page);
               wx.setStorageSync('fileId', res.data.data.id);
             }
-            
           }
-        })
-        //console.log(price);
-        //fee = copies * price * pagenum;
-        //total = fee.toFixed(2);
-        //console.log(copies);
-        //console.log(price);
-        //console.log(pagenum);
-        //console.log(total);
-        //wx.setStorageSync('fee', total);
-        //console.log(wx.getStorageSync('fee'));
+        });
         //跳转显示订单信息
-        wx.navigateTo({ //页面跳转orderSure
+        wx.navigateTo({  
           url: '/pages/orderSure/orderSure'
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    copies = 1;
   }
 })

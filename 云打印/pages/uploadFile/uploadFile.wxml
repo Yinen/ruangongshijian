@@ -1,5 +1,3 @@
-<!--pages/upload/upload.wxml-->
-
 <!--上传文件-->
 <view>
 <!--src是服务器中网页的地址-->

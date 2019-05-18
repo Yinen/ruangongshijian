@@ -12,7 +12,8 @@
       </view>
     </picker>
   </view>
-
+  
+  <!-- 打印份数 -->
   <view class="copy">
     <view class="num">
       <text>份数：</text>
@@ -47,8 +48,30 @@
     </radio-group>
   </view>
 
+  <view class="priority">
+    <text>优先级(1-10)：</text>
+    <input class="doc-priority" name="text" value="{{priority}}" auto-height="true" bindinput="onPriority"></input>
+    <button class="priority-add" bindtap="onAdd">
+      <image src="/images/add.png"></image>
+    </button>
+    <button class="priority-sub" bindtap="onSub">
+      <image src="/images/sub.png"></image>
+    </button>
+  </view>
+
+  <view class="line"></view>
+
+  <!-- 装订方式 -->
+  <view class="doc-bind">
+    <picker bindchange="onBindChange" value="{{bindIndex}}" range="{{bindArray}}" name="bind">
+      <view class="bind-style">
+        装订方式：{{bindArray[bindIndex]}}
+      </view>
+    </picker>
+  </view>
+
   <view class="note">
-    <input placeholder="填写备注......" auto-height="true" bindinput="onNote" class="input-info" type="text"></input>
+    <input placeholder="填写备注......" auto-focus auto-height="true" bindinput="onNote" class="input-info" type="text"></input>
   </view>
 
   <!--提交信息按钮-->

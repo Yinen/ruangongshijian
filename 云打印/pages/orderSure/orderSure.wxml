@@ -22,11 +22,19 @@
   </view>
 
   <view class="common">
-    <text>打印店地址地点：{{positionName}}</text>
+    <text>打印店地址：{{positionName}}</text>
   </view>
 
   <view class="common">
     <text>打印属性：{{pageSize}}，{{pageType}}，{{pageColor}}</text>
+  </view>
+
+  <view class="common">
+    <text>优先级数：{{priority}}</text>
+  </view>
+
+  <view class="common">
+    <text>装订方式：{{bind}}</text>
   </view>
 
   <view class="common">

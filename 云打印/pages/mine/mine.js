@@ -20,7 +20,7 @@ Page({
   },
 
   //我的地址点击事件
-  onMyPosition: function() {
+  onMyAddress: function() {
     wx.navigateTo({ //页面跳转myPosition
       url: '/pages/myAddress/myAddress',
     })
@@ -57,6 +57,5 @@ Page({
       nickName: wx.getStorageSync('nickName'),
       headerUrl: wx.getStorageSync('imageUrl'),
     });
-  },
-
+  }
 })

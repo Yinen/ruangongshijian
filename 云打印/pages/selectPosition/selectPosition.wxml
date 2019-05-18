@@ -1,17 +1,14 @@
-<!--pages/selectPosition/selectPosition.wxml-->
-
 <view>
  <!--取件地点-->
   <view class="section">
-    <picker bindchange="onPickerChange" value="{{index}}" range="{{posArr}}" name='position'>
-      <view class='position-style'>
+    <picker bindchange="onPickerChange" value="{{index}}" range="{{posArr}}" name="position">
+      <view class="position-style">
         取件地点：{{posArr[index]}}
       </view>
     </picker>
   </view>
-
   <view>
-    <button class='position-sure' bindtap='onPositionSure'><text>确定</text></button>
+    <button class="position-sure" bindtap="onPositionSure"><text>确定</text></button>
   </view>
 </view>
 

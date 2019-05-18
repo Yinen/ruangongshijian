@@ -2,7 +2,6 @@ import {
   menuIconUrls
 } from '../../utils/Icon.js'
 
-// pages/show/show.js
 Page({
   /**
    * 页面的初始数据
@@ -12,7 +11,7 @@ Page({
     imgUrls: [
       '/images/1.jpg',
       '/images/2.jpg',
-      '/images/111.jpg'
+      '/images/3.jpg'
     ],
     indicatorDots: false,
     autoplay: true,
@@ -20,17 +19,10 @@ Page({
     duration: 1000,
   },
 
-  onFileTap: function() {
-    wx.navigateTo({ //页面跳转myPosition
-      //url: '../printIndex/printIndex'
-      url: '../uploadFile/uploadFile'
-    });
-  },
-
-  onOrderTap: function() {
+  onFileTap: function () {
     wx.navigateTo({
-      url: '../orderSure/orderSure'
-    })
+      url: '/pages/uploadFile/uploadFile'
+    });
   },
 
   /**
