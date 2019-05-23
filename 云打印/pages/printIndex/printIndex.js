@@ -28,8 +28,14 @@ Page({
     hiddenPrintPos: true,
     //收件人姓名
     name: '',
+    nameCorrect: false,
+    nameError: false,
+    nameErr: '名字有误',
     //收件人手机号码
     phone: '',
+    phoneCorrect: false,
+    phoneError: false,
+    phoneErr: '手机号有误',
     //存储页数
     pageNum: 0,
     //我的地址
@@ -50,12 +56,50 @@ Page({
       name: params.detail.value
     })
   },
+  onNameInput: function () {
+    this.setData({
+      nameCorrect: false,
+      nameError: false
+    })
+  },
+  onCheckName: function () {
+    if (this.data.name.length == 0) {
+      this.setData({
+        nameCorrect: false,
+        nameError: true
+      })
+    } else {
+      this.setData({
+        nameCorrect: true,
+        nameError: false
+      })
+    }
+  },
   //收件人手机号输入框事件
   userPhone: function (params) {
     console.log('手机号input发送选择改变，携带值为', params.detail.value)
     this.setData({
       phone: params.detail.value
     })
+  },
+  onPhoneInput: function () {
+    this.setData({
+      phoneCorrect: false,
+      phoneError: false
+    })
+  },
+  onCheckPhone: function () {
+    if (this.data.phone.length == 11) {
+      this.setData({
+        phoneCorrect: true,
+        phoneError: false
+      })
+    } else {
+      this.setData({
+        phoneCorrect: false,
+        phoneError: true
+      })
+    }
   },
   //添加文件事件
   onAddFile: function () {
@@ -184,33 +228,19 @@ Page({
   //下一步按钮的监听事件事件
   onNextPageButton: function () {
     //数据存入本地缓存
-    if (this.data.name.length == 0) {
-      wx.showModal({
-        title: '姓名未填写',
-        content: '请填入你的名字',
-      });
-    }
-    if (this.data.phone.length != 11) {
-      wx.showModal({
-        title: '手机号有误',
-        content: '请填入正确的手机号码',
-      });
-    }
-    if (this.data.name.length != 0 && this.data.phone.length == 11) {
-      wx.setStorageSync('userName', this.data.name);
-      wx.setStorageSync('userPhone', this.data.phone);
-      wx.setStorageSync('takeDate', this.data.date);
-      wx.setStorageSync('takeTime', this.data.time);
-      wx.setStorageSync('schoolName', this.data.schoolArray[this.data.schoolIndex]);
-      wx.setStorageSync('positionName', this.data.printShopName[this.data.printShopIndex]);
-      wx.setStorageSync('pageNum', this.data.pageNum);
-      wx.setStorageSync('myPosition', this.data.myAddress.address);
-      wx.setStorageSync('sendSelect', this.data.sendSelect);
-      //页面跳转printAttribution
-      wx.navigateTo({
-        url: '/pages/printAttribution/printAttribution'
-      });
-    }
+    wx.setStorageSync('userName', this.data.name);
+    wx.setStorageSync('userPhone', this.data.phone);
+    wx.setStorageSync('takeDate', this.data.date);
+    wx.setStorageSync('takeTime', this.data.time);
+    wx.setStorageSync('schoolName', this.data.schoolArray[this.data.schoolIndex]);
+    wx.setStorageSync('positionName', this.data.printShopName[this.data.printShopIndex]);
+    wx.setStorageSync('pageNum', this.data.pageNum);
+    wx.setStorageSync('myPosition', this.data.myAddress.address);
+    wx.setStorageSync('sendSelect', this.data.sendSelect);
+    //页面跳转printAttribution
+    wx.navigateTo({
+      url: '/pages/printAttribution/printAttribution'
+    });
   },
 
   onLoad: function (options) {

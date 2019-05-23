@@ -1,2 +1,0 @@
-<!--pages/up-file/up-file.wxml-->
-<web-view src='http://120.77.32.233/print/view/link/upload_file'></web-view>

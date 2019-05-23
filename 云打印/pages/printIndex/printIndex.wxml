@@ -14,16 +14,35 @@
       <text>取件人：</text>
     </view>
     <view>
-      <input placeholder="请填写你的名字" name="userName" bindinput="userName" />
+      <input placeholder="请填写名字" name="userName" bindinput="userName" 
+      bindfocus="onNameInput" bindblur="onCheckName"/>
+    </view>
+    <view class="tip-success" wx:if="{{nameCorrect}}">
+      <icon type="success" size="15" color="green"/>
+    </view>
+    <view class="tip-error" wx:elif="{{nameError}}">
+      <icon type="warn" size="15" color="red"/>
+      <text>{{nameErr}}</text>
+    </view>
+    <view class="tip-normal" wx:else>
     </view>
   </view>
   <!--取件人手机号-->
   <view class="user">
     <view class="phone">
-      <text style="width=20rpx">手机号：</text>
+      <text>手机：</text>
     </view>
     <view>
-      <input placeholder="请填写你的手机号" name="phone" bindinput="userPhone" />
+      <input placeholder="请填写手机号" name="phone" bindinput="userPhone" bindfocus="onPhoneInput" maxlength='11' bindblur="onCheckPhone"/>
+    </view>
+    <view class="tip-success" wx:if="{{phoneCorrect}}">
+      <icon type="success" size="18" color="green"/>
+    </view>
+    <view class="tip-error" wx:elif="{{phoneError}}">
+      <icon type="warn" size="18" color="red"/>
+      <text>{{phoneErr}}</text>
+    </view>
+    <view class="tip-normal" wx:else>
     </view>
   </view>
 

@@ -15,23 +15,46 @@
 
 .user {
   height: 56rpx;
-  width: 77%;
+  width: 80%;
   margin: 40rpx 70rpx;
   padding: 0rpx;
   border-bottom: 2rpx solid rgb(110, 157, 245);
   font-family: "幼圆";
+  display: flex;
+  justify-content: space-between;
 }
 
 /**收件人名字样式**/
 
 .name {
-  float: left;
+  width: 240rpx;
 }
+
+.tip-success{
+  width: 280rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.tip-error{
+  width: 320rpx;
+  color: red;
+  font-size: 27rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tip-normal{
+  width: 280rpx;
+}
+
 
 /**收件人手机号样式**/
 
 .phone {
-  float: left;
+  width: 250rpx;
 }
 
 /**日期选择器的样式**/
