@@ -1,0 +1,61 @@
+<!--pages/historyOrder/historyOrder.wxml-->
+<view>
+  <view class="show" wx:for="{{myMenu}}" wx:key="*this" style="display: block;">
+    <!-- data自定义属性-->
+    <view catchtap="onMyMenuTop" class="my-menu-item" data-name="{{item}}" data-value="{{index}}">
+      <view class="menu-header">
+        <image src="/images/shop_head.jpg" class="image-style"></image>
+        <text class="positions-show-text">{{item.college}}-{{item.shopAddress}}</text>
+        <text class="put-money">已完成</text>
+        <view class="menu-time">{{item.createTime}}</view>
+      </view>
+      <view class="info-menu">
+        <text class="text-size">姓名：{{item.name}}； 手机号：{{item.phone}}</text>
+      </view>
+      <view class="info-menu-price">
+        <text class="text-size-price">价格：{{item.price}}元</text>
+      </view>
+    </view>
+    <!--按钮-->
+    <view class="priced">
+      <button class="link-shop" bindtap="onLinkShop" data-name="{{item}}" data-value="{{index}}">联系商家</button>
+      <button class="delete" bindtap="onDelete" data-name="{{item}}" data-value="{{index}}">删除</button>
+      <button class="look" bindtap="onLook" data-name="{{item}}" data-value="{{index}}">查看</button>
+    </view>
+  </view>
+  <view>
+    <!--弹出框，显示订单详细信息-->
+    <modal hidden="{{hiddenmodalOrder}}" title="订单的详细信息" confirm-text="确定" cancel-text="返回" bindcancel="onCancel" bindconfirm="onConfirm">
+      <view>
+        <text>订单号：{{catchTabItem.id}}</text>
+      </view>
+      <view>
+        <text>订单时间：{{catchTabItem.createTime}}</text>
+      </view>
+      <view>
+        <text>姓名：{{catchTabItem.name}}</text>
+      </view>
+      <view>
+        <text>手机号：{{catchTabItem.phone}}</text>
+      </view>
+      <view>
+        <text>价格：{{catchTabItem.price}}元</text>
+      </view>
+      <view>
+        <text>收货地址：{{catchTabItem.college}}--{{catchTabItem.shopAddress}}</text>
+      </view>
+      <view>
+        <text>取件时间：{{catchTabItem.takeTime}}</text>
+      </view>
+      <view>
+        <text>页数{{catchTabItem.pageNum}}；份数：{{catchTabItem.num}}；配送状态：{{hasDelivery}}</text>
+      </view>
+      <view>
+        <text>我的地址：{{catchTabItem.myAddress}}</text>
+      </view>
+      <view>
+        <text>备注：{{catchTabItem.note}}</text>
+      </view>
+    </modal>
+  </view>
+</view>

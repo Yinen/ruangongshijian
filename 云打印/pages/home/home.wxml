@@ -12,19 +12,19 @@
   <view class="Icon-group">
     <view>
       <image src="{{iconUrls.docIcon}}" class="Icon" bindtap="onFileTap"></image>
-      <image src="{{iconUrls.imgIcon}}" class="Icon2"></image>
-      <image src="{{iconUrls.orderIcon}}" class="Icon3"></image>
+      <image src="{{iconUrls.imgIcon}}" class="Icon2" bindtap="onImageTap"></image>
+      <image src="{{iconUrls.orderIcon}}" class="Icon3" bindtap="onHistoryOrder"></image>
     </view>
     <view class="image-text">
       <text class="Icon-text" bindtap="onFileTap">文档打印</text>
-      <text class="Icon-text2">图片打印</text>
-      <text class="Icon-text3">历史订单</text>
+      <text class="Icon-text2" bindtap="onImageTap">图片打印</text>
+      <text class="Icon-text3" bindtap="onHistoryOrder">历史订单</text>
     </view>
     <view class="image-text2">
-      <image src="{{iconUrls.viewIcon}}" class="Icon4"></image>
+      <image src="{{iconUrls.viewIcon}}" class="Icon4" bindtap="onSaoYiSao"></image>
     </view>
     <view>
-      <text class="Icon-text4">扫一扫</text>
+      <text class="Icon-text4" bindtap="onSaoYiSao">扫一扫</text>
     </view>
   </view>
 </view>

@@ -17,12 +17,43 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1000,
+
+    result:'',
   },
 
   onFileTap: function () {
     wx.navigateTo({
       url: '/pages/uploadFile/uploadFile'
     });
+  },
+
+  onImageTap:function(){
+    wx.navigateTo({
+      url: '/pages/uploadFile/uploadFile'
+    });
+  },
+
+  onHistoryOrder:function(){
+    wx.navigateTo({
+      url: '/pages/historyOrder/historyOrder'
+    });
+  },
+
+  onSaoYiSao:function(){
+    var _this = this;
+    // 允许从相机和相册扫码
+    wx.scanCode({
+      success: (res) => {
+        var result = res.result;
+
+        _this.setData({
+          result: result,
+
+        })
+
+        console.log(_this.data.result);
+      }
+    })
   },
 
   /**
