@@ -44,6 +44,14 @@
     </view>
   </view>
   <view class="btn-box">
-    <button data-bookinfo="{{bookInfo}}" disabled="{{submitBtn}}" hover-class="btn-primary-hover" bindgetuserinfo="onGetUserInfo" open-type="getUserInfo">进入小程序</button>
+    <button data-bookinfo="{{bookInfo}}" disabled="{{submitBtn}}" hover-class="btn-primary-hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindgetuserinfo="getUserInfo">进入小程序</button>
   </view>
+</view>
+<view class='notice' wx:if='{{notice_me == true}}'>
+  <view class='row-in'>
+    <image class='notice-pic' src='/images/statement.png'></image>
+    <view class='notice-title'>{{notice_title}}</view>
+  </view>
+  <view class='notice-text'>{{notice_detail}}</view>
+  <button class='i-know-it' bindgetuserinfo='getUserInfo' open-type="getUserInfo">我知道了</button>
 </view>

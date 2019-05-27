@@ -25,90 +25,111 @@ let defaultMyPosId = '1'*/
 Page({
   data: {
     isAgreement: false, // 是否显示用户协议
-    submitBtn: false // 是否允许投稿
+    submitBtn: false, // 是否允许投稿
+    userInfo: null,
+    notice_me: false,
+    notice_title: "请您登录",
+    notice_detail: "为了您能获得更好的程序体验，请您先授权登录",
   },
 
-  /* getPhoneNumber:function(params){
-     console.log(params.detail.errMsg)
-     console.log(params.detail.iv)
-     console.log(params.detail.encryptedData)
-     if (params.detail.errMsg == 'getPhoneNumber:fail user deny') {
-       wx.showModal({
-         title: '提示',
-         showCancel: false,
-         content: '未授权',
-         success: function (res) { }
-       })
-     } else {
-       wx.showModal({
-         title: '提示',
-         showCancel: false,
-         content: '同意授权',
-         success: function (res) { }
-       })
-     }
+  onLoad:function(options){
+    var that = this
+    wx.getSetting({ // 获取用户信息
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) {
+          // 如果还未授权获取用户信息，则弹窗询问
+          that.noticeMe()
+        } else {
+          console.log("已授权获取用户信息")
+        }
+      }
+    })
+  },
 
-   },*/
+  noticeMe: function () {
+    this.setData({
+      notice_me: true
+    })
+  },
 
-  onGetUserInfo: function(params) {
-    let that = this;
-    if (params.detail.userInfo != null) { //用户点击允许授权
-      imageUrl = params.detail.userInfo.avatarUrl,
-        nickName = params.detail.userInfo.nickName,
-        avatarUrl = params.detail.userInfo.avatarUrl,
-        gender = params.detail.userInfo.gender,
-        city = params.detail.userInfo.city,
-        province = params.detail.userInfo.province,
-        country = params.detail.userInfo.country,
-        authorize = true;
-      /*console.log(nickName),
-      console.log(imageUrl),
-      console.log(avatarUrl),
-      console.log(gender),
-      console.log(city),
-      console.log(province),
-      console.log(country),*/
+  Iknowit: function () {
+    this.setData({
+      notice_me: false
+    })
+  },
 
-      wx.setStorageSync('nickName', nickName);
-      wx.setStorageSync('imageUrl', imageUrl);
-      wx.setStorageSync('gender', gender);
-      wx.setStorageSync('country', country);
-      wx.setStorageSync('province', province);
-      wx.setStorageSync('city', city);
-      wx.setStorageSync('phone', '12345678900');
+  getUserInfo: function (e) {
+    var userInfo = e.detail.userInfo
+    if (userInfo) {
+      // 用户按了允许授权按钮
+      // console.log('btn getUserInfo')
+      app.save_user_info(userInfo)
+    } else {
+      //用户按了拒绝按钮
+      wx.showToast({
+        title: '未登录',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+    }
+    this.Iknowit()
+  },
 
+
+  getPhoneNumber: function (e) {
+    if (e.errMsg == 'getPhoneNumber:fail user deny') {
+      //用户按了拒绝按钮
+      wx.showToast({
+        title: '未授权手机号',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+    } else {
       wx.request({
-        url: 'http://120.77.32.233/print/user/update',
+        url: 'http://120.77.32.233/print/wechat/get/user/phone',
         data: {
-          phone: '123456789',
-          nickName: nickName,
-          avatarUrl: avatarUrl,
-          gender: gender,
-          city: city,
-          province: province,
-          country: country,
+          encryptedData: e.detail.encryptedData,
+          session_key: wx.getStorageSync('session_key'),
+          iv: e.detail.iv
         },
         header: {
           'Content-Type': 'application/json',
           'cookie': wx.getStorageSync('sessionid') //读取cookie
         },
-        method: 'POST',
-        success: function(res) {
+        method: 'GET',
+        success: function (res) {
           //服务器返回数据null
           console.log(res.data);
+          wx.setStorageSync('phone', res.data.phoneNumber);
+          wx.request({
+            url: 'http://120.77.32.233/print/user/update',
+            data: {
+              phone: wx.getStorageSync('phone'),
+              nickName: wx.getStorageSync('nickName'),
+              avatarUrl: wx.getStorageSync('imageUrl'),
+              gender: wx.getStorageSync('gender'),
+              city: wx.getStorageSync('city'),
+              province: wx.getStorageSync('province'),
+              country: wx.getStorageSync('country'),
+            },
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync('sessionid') //读取cookie
+            },
+            method: 'POST',
+            success: function (res) {
+              //服务器返回数据null
+              console.log(res.data);
+            }
+          });
         }
-      })
-
+      });
       wx.switchTab({
         url: '../home/home'
       });
-
-    } else {
-      wx.switchTab({
-        url: '../grantEntre/grantEntre'
-      });
     }
-
   },
 
   onShowAgreement: function() {

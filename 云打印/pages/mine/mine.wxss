@@ -12,22 +12,44 @@
 .header-icon {
   width: 100%;
   height: 200rpx;
-  padding-top: 10%;
 }
 
 .header-icon image {
   width: 120rpx;
   height: 130rpx;
   float: left;
-  margin: 0 50rpx;
+  margin: 40rpx 50rpx;
 }
 
-.header-icon text{
-  font-size: 25rpx;
+.right-group{
+  display: flex;
+  padding-top: 50rpx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.login{
+  background: #fefefe;
+  font-size: 30rpx;
+  width: 200rpx;
+  float: left;
+  margin-left: 0rpx;
+}
+.login::after{
+  border: none;
+}
+
+.header-name{
+  font-size: 40rpx;
+}
+
+.header-phone{
+  font-size: 30rpx;
 }
 
 .information {
-  border-bottom: 1rpx solid rgb(189, 185, 185);
+  border-bottom: 1rpx solid #EEE9E9;
   position: relative;
 }
 
@@ -60,7 +82,7 @@
 }
 
 .position {
-  border-bottom: 1rpx solid rgb(189, 185, 185);
+  border-bottom: 1rpx solid #EEE9E9;
   position: relative;
 }
 
@@ -82,7 +104,7 @@
 }
 
 .order {
-  border-bottom: 1rpx solid rgb(189, 185, 185);
+  border-bottom: 1rpx solid #EEE9E9;
   position: relative;
 }
 
@@ -104,23 +126,33 @@
 }
 
 .phone {
-  border-bottom: 1rpx solid rgb(189, 185, 185);
+  border-bottom: 1rpx solid #EEE9E9;
   position: relative;
+  
 }
 
 .phone image{
   width: 50rpx;
   height: 50rpx;
   float: left;
-  margin: 0 40rpx;
+  margin: 32rpx 0rpx;
+  margin-left: 40rpx;
+  margin-right:13rpx; 
 }
 
-.phone .link-phone {
+.link-phone::after{
+  border: none;
+}
+
+.link-phone {
+  width: 600rpx;
+  height: 110rpx;
+  line-height: 80rpx;
   font-size: 42rpx;
-  color: rgb(14, 6, 4);
-  padding: 0rpx;
-  height: 80rpx;
-  width: 80%;
-  margin: 5% 0rpx 0rpx 68rpx;
-  display: table;
+  color: #000;
+  text-align: left;
+  border: none;
+  margin: 0;
+  padding-top: 16rpx;
+  background: #fefefe;
 }

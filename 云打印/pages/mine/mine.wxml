@@ -3,8 +3,13 @@
   <view class="header-group">
     <view class="header">
       <view class="header-icon">
-        <image src="{{headerUrl}}" class="images"></image>
-        <text class="header-name">{{nickName}}</text>
+        <image class='head-img' src='/images/no_login_head.jpg' wx:if="{{!userInfo}}"></image>
+        <image src="{{headerUrl}}" class="images" wx:else></image>
+        <view class="right-group">
+          <button class='login' bindgetuserinfo='getUserInfo' wx:if='{{!userInfo}}' open-type="getUserInfo">点击登录</button>
+          <text class="header-name" wx:else>{{nickName}}</text>
+          <text class="header-phone">手机号:{{phone}}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -31,8 +36,7 @@
     <!-- 联系客服 -->
     <view class="phone">
       <image src="/images/phone.png"></image>
-      <text class="link-phone">联系客服(400-9057-333)</text>
-      <view class="arrow"></view>
+      <button class="link-phone" open-type='contact'>联系客服</button>
     </view>
   </view>
 </view>

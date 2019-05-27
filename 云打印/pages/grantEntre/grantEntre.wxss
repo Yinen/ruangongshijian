@@ -89,3 +89,42 @@
   background: #6a5acd;
   color: #fff;
 }
+
+/*提示*/
+.notice {
+  width: 500rpx;
+  height: 270rpx;
+  position: fixed;
+  top: 320rpx;
+  left: 100rpx;
+  background: #fefefe;
+  border-radius: 7rpx;
+  z-index: 100;
+  padding: 25rpx;
+}
+.notice-pic {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 5rpx;
+  margin-right: 15rpx;
+}
+.notice-title {
+  font-size: 30rpx;
+  color: #343131;
+  line-height: 50rpx;
+}
+.notice-text{
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 50rpx;
+  height: 100rpx;
+}
+.i-know-it {
+  font-size: 23rpx;
+  width: 120rpx;
+  line-height: 40rpx;
+  padding: 5rpx;
+  text-align: center;
+  color:#343131;
+}
