@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp();
 let num = 0;
+let count = 0;
 let color = 0;
 let price = 0;
 let pagenum = 0;
@@ -76,34 +77,51 @@ Page({
   },
 
   //份数监听
-  onCopies: function(e) {
+  onCopies: function (e) {
     this.setData({
       copyNum: parseInt(e.detail.value)
     });
     copies = this.data.copyNum;
   },
+  onCopyAdd: function () {
+    count = this.data.copyNum;
+    count++;
+    this.setData({
+      copyNum: count
+    });
+  },
+  onCopySub: function () {
+    count = this.data.copyNum;
+    if (count <= 1) {
+      count = 1;
+    }
+    else {
+      count--;
+    }
+    this.setData({
+      copyNum: count
+    });
+  },
 
   //优先级数监听
-  onPriority:function(e){
+  onPriority: function (e) {
     this.setData({
       priority: parseInt(e.detail.value)
     });
   },
-
   onAdd: function () {
     num = this.data.priority;
-    if(num >= 10){
+    if (num >= 10) {
       num = 10;
     }
-    else{
+    else {
       num++;
     }
     this.setData({
       priority: num
     });
   },
-
-  onSub:function(e){
+  onSub: function () {
     num = this.data.priority;
     if (num <= 1) {
       num = 1;
@@ -133,6 +151,18 @@ Page({
 
   //提交按钮监听事件
   onSubmitMessage: function() {
+    var that=this;
+    wx.showLoading({
+      title: '计算页数中',
+      mask: true,
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+      wx.pageScrollTo({
+        scrollTop: 2500,
+        duration: 500,
+      })
+    }, 3000)
     //调用接口提交信息（包括页数，返回费用）
     wx.setStorageSync('pageSize', this.data.pageSizeArray[this.data.pageIndex]);
     wx.setStorageSync('pageType', this.data.pageNumType);
@@ -172,19 +202,68 @@ Page({
           success: function (res) {
             console.log(res.data)
             if (res.data.data.page==0){
+              wx.showLoading({
+                title: '计算页数中',
+                mask: true,
+              })
+              setTimeout(function () {
+                wx.hideLoading()
+                wx.pageScrollTo({
+                  scrollTop: 2500,
+                  duration: 500,
+                })
+              }, 3000);
+              that.getFileInfo();
             }
             else{
               pagenum = parseFloat(res.data.data.page);
               wx.setStorageSync('pageNum', res.data.data.page);
               wx.setStorageSync('fileId', res.data.data.id);
+              //跳转显示订单信息
+              wx.navigateTo({
+                url: '/pages/orderSure/orderSure'
+              })
             }
           }
         });
-        //跳转显示订单信息
-        wx.navigateTo({  
-          url: '/pages/orderSure/orderSure'
-        })
       }
     })
-  }
+  },
+
+  getFileInfo:function(){
+    console.log("fileInfo")
+    var that=this;
+    wx.request({
+      url: 'http://120.77.32.233/print/get/last/file',
+      data: {},
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync('sessionid') //读取cookie
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.data.page == 0) {
+          wx.showLoading({
+            title: '计算页数中',
+            mask: true,
+          })
+          setTimeout(function () {
+            wx.hideLoading()
+            wx.pageScrollTo({
+              scrollTop: 2500,
+              duration: 500,
+            })
+          }, 3000);
+          that.getFileInfo();
+        }
+        else {
+          pagenum = parseFloat(res.data.data.page);
+          wx.setStorageSync('pageNum', res.data.data.page);
+          wx.setStorageSync('fileId', res.data.data.id);
+        }
+      }
+    })
+  },
+
 })

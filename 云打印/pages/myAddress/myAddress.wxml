@@ -11,10 +11,11 @@
 
   <view class="{{positions-show}}" wx:for="{{myAddressNameArray}}" wx:key="*this">
     <!-- data自定义属性-->
-    <view catchtap="onModelTap" class="positions" data-name="{{item}}" data-value="{{index}}">
-      <view wx:if="{{!myAddressArray[index].hasDefault}}"><image src="/images/position_icon.png" class="image-style"></image></view>
-      <view wx:else><image src="/images/position_icon_default.png" class="image-style"></image></view>
-      <text>{{item}}</text>
+    <view class="positions" data-name="{{item}}" data-value="{{index}}">
+      <view wx:if="{{!myAddressArray[index].hasDefault}}" catchtap="onModelTap" data-name="{{item}}" data-value="{{index}}"><image src="/images/position_icon.png" class="image-style"></image></view>
+      <view wx:else catchtap="onModelTap" data-name="{{item}}" data-value="{{index}}"><image src="/images/position_icon_default.png" class="image-style"></image></view>
+      <text catchtap="onModelTap" data-name="{{item}}" data-value="{{index}}">{{item}}</text>
+      <button class='address-del' catchtap="del_address" data-name="{{item}}" data-value="{{index}}">删除</button>
     </view>
   </view>
 
@@ -36,6 +37,6 @@
         </view>
       </picker>
     </view>
-    <input type="text" placeholder="请输入详细地址" bindinput="onMyDetailPosition" />
+    <input type="text" placeholder="请输入详细地址" bindinput="onMyDetailPosition" maxlength='8'/>
   </modal>
 </view>

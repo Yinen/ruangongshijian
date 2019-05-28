@@ -66,6 +66,7 @@
 }
 
 .positions text {
+  width: 550rpx;
   margin-top: 12rpx;
   font-family: "幼圆";
   font-size: 36rpx;
@@ -82,4 +83,14 @@
   height: 25px;
   float: left;
   margin: 0 20rpx;
+}
+
+.address-del{
+  width: 150rpx;
+  float: right;
+  color: #fff;
+  height: 50rpx;
+  font-size: 24rpx;
+  background: #EE6363;
+  margin-right: 15rpx; 
 }

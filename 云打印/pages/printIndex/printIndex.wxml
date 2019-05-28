@@ -30,16 +30,16 @@
   <!--取件人手机号-->
   <view class="user">
     <view class="phone">
-      <text>手机：</text>
+      <text>手机号：</text>
     </view>
     <view>
       <input placeholder="请填写手机号" name="phone" bindinput="userPhone" bindfocus="onPhoneInput" maxlength='11' bindblur="onCheckPhone"/>
     </view>
     <view class="tip-success" wx:if="{{phoneCorrect}}">
-      <icon type="success" size="18" color="green"/>
+      <icon type="success" size="15" color="green"/>
     </view>
     <view class="tip-error" wx:elif="{{phoneError}}">
-      <icon type="warn" size="18" color="red"/>
+      <icon type="warn" size="15" color="red"/>
       <text>{{phoneErr}}</text>
     </view>
     <view class="tip-normal" wx:else>

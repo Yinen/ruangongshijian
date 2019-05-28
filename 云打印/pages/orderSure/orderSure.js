@@ -34,19 +34,6 @@ Page({
 
   //确定按钮的监听事件
   onMessageSure: function() {
-    console.log(this.data.date + " " + this.data.time + ":00");
-    //提交订单各个信息
-    console.log(wx.getStorageSync("nickName"));
-    console.log(wx.getStorageSync("phone"));
-    console.log(this.data.date + " " + this.data.time + ":00");
-    console.log(this.data.schoolName);
-    console.log(this.data.positionName);
-    console.log(wx.getStorageSync("propertyId"));
-    console.log(this.data.myPosition);
-    //console.log(parseInt(this.data.pageNum));
-    console.log(parseInt(this.data.copyNum));
-    console.log(this.data.isDelivery);
-
     wx.request({
       url: "http://120.77.32.233/print/order/add",
       header: {

@@ -1,22 +1,23 @@
 <view class="body-Info">
   <view class="blank"></view>
-  <view class="head-Icon">
-    <view class="head-icon">
+  <view class="head-group">
+    <view class="left-group">
       <image mode="scaleToFill" src="{{imageUrl}}" class="icon-size"></image>
     </view>
-    <view class="nickname">
-      <text>{{nickName}}</text>
-    </view>
-    <view class="phoneText">手机号：</view>
-    <view class="showPnone">
-      <text>{{phone}}</text>
+    <view class="right-group">
+      <view class="nickname">
+        <text>{{nickName}}</text>
+      </view>
+      <view class="showPhone">
+        <text>手机号：{{phone}}</text>
+      </view>
     </view>
   </view>
 
   <view>
     <view class="sex">
       <image src="/images/gender.png"></image>
-      <text>性别</text>
+      <text class='sex-name'>性别</text>
       <text class="sex-value">{{gender}}</text>
     </view>
   </view>
@@ -25,7 +26,7 @@
   <view>
     <view class="country">
       <image src="/images/country.png"></image>
-      <text>国家</text>
+      <text class="country-name">国家</text>
       <text class="country-value">{{country}}</text>
     </view>
   </view>
@@ -34,7 +35,7 @@
   <view>
     <view class="province">
       <image src="/images/province.png"></image>
-      <text>省份</text>
+      <text class='province-name'>省份</text>
       <text class="province-value">{{province}}</text>
     </view>
   </view>
@@ -43,7 +44,7 @@
   <view>
     <view class="city">
       <image src="/images/city.png"></image>
-      <text>城市</text>
+      <text class='city-name'>城市</text>
       <text class="city-value">{{city}}</text>
     </view>
   </view>

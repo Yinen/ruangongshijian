@@ -12,72 +12,75 @@
       </view>
     </picker>
   </view>
-  
+
   <!-- 打印份数 -->
   <view class="copy">
-    <view class="num">
-      <text>份数：</text>
-    </view>
-    <view class="input-num">
-      <input placeholder="打印的份数" auto-focus name="copies" bindinput="onCopies" />
-    </view>
-  </view>
-
-
-  <!--打印属性单双面-->
-  <view>
-    <radio-group class="radio-group" name="radioGroup" bindchange="onPageNumRadioChange">
-      <label>
-        <radio value="{{simple_page}}" checked="true" class="simple-radio" />{{simple_page}}
-      </label>
-      <label>
-        <radio value="{{double_page}}" class="double-radio" />{{double_page}}
-      </label>
-    </radio-group>
-  </view>
-
-  <!--打印属性黑白或者彩印-->
-  <view>
-    <radio-group class="radio-group" name="pagecolor" bindchange="onRadioChangeColor">
-      <label>
-        <radio value="{{black_white_page}}" checked="true" class="black-white-radio" />{{black_white_page}}
-      </label>
-      <label>
-        <radio value="{{coloured_page}}" class="coloured-radio" />{{coloured_page}}
-      </label>
-    </radio-group>
-  </view>
-
-  <view class="priority">
-    <text>优先级(1-10)：</text>
-    <input class="doc-priority" name="text" value="{{priority}}" auto-height="true" bindinput="onPriority"></input>
-    <button class="priority-add" bindtap="onAdd">
+    <text>份数：</text>
+    <input class="copy-input" name="text" value="{{copyNum}}" auto-height="true" bindinput="onCopy"></input>
+    <button class="copy-add" bindtap="onCopyAdd">
       <image src="/images/add.png"></image>
     </button>
-    <button class="priority-sub" bindtap="onSub">
-      <image src="/images/sub.png"></image>
+  <button class="copy-sub" bindtap="onCopySub">
+    <image src="/images/sub.png"></image>
     </button>
-  </view>
+</view>
 
-  <view class="line"></view>
+<view class="line"></view>
 
-  <!-- 装订方式 -->
-  <view class="doc-bind">
-    <picker bindchange="onBindChange" value="{{bindIndex}}" range="{{bindArray}}" name="bind">
-      <view class="bind-style">
-        装订方式：{{bindArray[bindIndex]}}
-      </view>
-    </picker>
-  </view>
+<!--打印属性单双面-->
+<view>
+  <radio-group class="radio-group" name="radioGroup" bindchange="onPageNumRadioChange">
+    <label>
+      <radio value="{{simple_page}}" checked="true" class="simple-radio" />{{simple_page}}
+    </label>
+    <label>
+      <radio value="{{double_page}}" class="double-radio" />{{double_page}}
+    </label>
+  </radio-group>
+</view>
 
-  <view class="note">
-    <input placeholder="填写备注......" auto-focus auto-height="true" bindinput="onNote" class="input-info" type="text"></input>
-  </view>
+<!--打印属性黑白或者彩印-->
+<view>
+  <radio-group class="radio-group" name="pagecolor" bindchange="onRadioChangeColor">
+    <label>
+      <radio value="{{black_white_page}}" checked="true" class="black-white-radio" />{{black_white_page}}
+    </label>
+    <label>
+      <radio value="{{coloured_page}}" class="coloured-radio" />{{coloured_page}}
+    </label>
+  </radio-group>
+</view>
 
-  <!--提交信息按钮-->
-  <view>
-    <button class="submit-message" bindtap="onSubmitMessage">
-      <text>提交</text>
-    </button>
-  </view>
+<view class="priority">
+  <text>优先级(1-10)：</text>
+  <input class="doc-priority" name="text" value="{{priority}}" auto-height="true" bindinput="onPriority"></input>
+  <button class="priority-add" bindtap="onAdd">
+    <image src="/images/add.png"></image>
+  </button>
+  <button class="priority-sub" bindtap="onSub">
+    <image src="/images/sub.png"></image>
+  </button>
+</view>
+
+<view class="line"></view>
+
+<!-- 装订方式 -->
+<view class="doc-bind">
+  <picker bindchange="onBindChange" value="{{bindIndex}}" range="{{bindArray}}" name="bind">
+    <view class="bind-style">
+      装订方式：{{bindArray[bindIndex]}}
+    </view>
+  </picker>
+</view>
+
+<view class="note">
+  <input placeholder="填写备注......" auto-focus auto-height="true" bindinput="onNote" class="input-info" type="text"></input>
+</view>
+
+<!--提交信息按钮-->
+<view>
+  <button class="submit-message" bindtap="onSubmitMessage">
+    <text>提交</text>
+  </button>
+</view>
 </view>

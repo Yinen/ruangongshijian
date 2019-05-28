@@ -27,7 +27,7 @@
 /**收件人名字样式**/
 
 .name {
-  width: 240rpx;
+  width: 250rpx;
 }
 
 .tip-success{
@@ -42,7 +42,7 @@
   color: red;
   font-size: 27rpx;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 

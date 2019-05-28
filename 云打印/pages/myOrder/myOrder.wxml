@@ -2,12 +2,20 @@
   <view class="show" wx:for="{{myMenu}}" wx:key="*this" style="display: block;">
     <!-- data自定义属性-->
     <view catchtap="onMyMenuTop" class="my-menu-item" data-name="{{item}}" data-value="{{index}}">
-      <view class="menu-header" wx:if="{{item.haspay}}">
+      <view class="menu-header" wx:if="{{item.accomplish}}">
+        <image src="/images/shop_head.jpg" class="image-style"></image>
+        <text class="positions-show-text">{{item.college}}-{{item.shopAddress}}</text>
+        <text class="put-money">已完成</text>
+        <view class="menu-time">{{item.createTime}}</view>
+      </view>
+      <view class="menu-header" wx:elif="{{item.hasPay}}">
+        <image src="/images/shop_head.jpg" class="image-style"></image>
         <text class="positions-show-text">{{item.college}}-{{item.shopAddress}}</text>
         <text class="put-money">已付款</text>
         <view class="menu-time">{{item.createTime}}</view>
       </view>
       <view class="menu-header" wx:else>
+        <image src="/images/shop_head.jpg" class="image-style"></image>
         <text class="positions-show-text">{{item.college}}-{{item.shopAddress}}</text>
         <text class="noput-money">未付款</text>
         <view class="menu-time">{{item.createTime}}</view>
@@ -20,12 +28,13 @@
       </view>
     </view>
     <!--按钮-->
-    <view wx:if="{{item.haspay}}" class="priced">
+    <view wx:if="{{item.hasPay}}" class="priced">
+      <button class="link-shop" bindtap="onLinkShop" data-name="{{item}}" data-value="{{index}}">联系商家</button>
       <button class="delete" bindtap="onDelete" data-name="{{item}}" data-value="{{index}}">删除</button>
       <button class="look" bindtap="onLook" data-name="{{item}}" data-value="{{index}}">查看</button>
     </view>
     <view wx:else class="pricing">
-      <button class="delete" bindtap="onDelete" data-name="{{item}}" data-value="{{index}}">删除</button>
+      <button class="delete" bindtap="onDelete" data-name="{{item}}" data-value="{{index}}">取消订单</button>
       <button class="pay" bindtap="onPay" data-name="{{item}}" data-value="{{index}}">付款</button>
     </view>
   </view>

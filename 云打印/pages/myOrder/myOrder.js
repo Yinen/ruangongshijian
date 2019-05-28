@@ -12,6 +12,29 @@ Page({
     hasDelivery: '',
   },
 
+  onLinkShop:function(e){
+    var that = this;
+    var order = e.currentTarget.dataset.name;
+    var index = e.currentTarget.dataset.value;
+    wx.request({
+      url: "http://120.77.32.233/print/order/get/shop/phone/" + order.id,
+      header: {
+        "Content-Type": "application/json",
+        "cookie": wx.getStorageSync("sessionid") //读取cookie
+      },
+      method: "POST",
+      success: function (res) {
+        if (res.data.code == 200) {
+          var shop_phone = res.data.data;
+          wx.makePhoneCall({
+            phoneNumber: shop_phone,
+            fail: e => console.log(e)
+          })
+        }
+      }
+    })
+  },
+
   onLook: function(e) {
     if (e.currentTarget.dataset.name.hasDelivery === false) {
       this.setData({
@@ -46,6 +69,61 @@ Page({
       hiddenmodalOrder: false,
     })
 
+  },
+
+  onDelete:function(e){
+    var that=this;
+    var order = e.currentTarget.dataset.name;
+    var index = e.currentTarget.dataset.value;
+    wx.request({
+      url: "http://120.77.32.233/print/order/del/" + order.id,
+      header: {
+        "Content-Type": "application/json",
+        "cookie": wx.getStorageSync("sessionid") //读取cookie
+      },
+      method: "POST",
+      success: function (res) {
+        console.log(res);
+        if(res.data.code==200){
+          //删除数组中对应的订单，更新界面显示
+          that.data.myMenu.splice(index, 1);
+          that.setData({
+            myMenu: that.data.myMenu,
+          })
+        }
+      }
+    })
+  },
+
+  onPay:function(e){
+    var order = e.currentTarget.dataset.name;
+    wx.request({
+      url: "http://120.77.32.233/print/pay/order/" + order.id,
+      header: {
+        "Content-Type": "application/json",
+        "cookie": wx.getStorageSync("sessionid") //读取cookie
+      },
+      method: "POST",
+      success: function (res) {
+        console.log(res);
+        wx.requestPayment({
+          "timeStamp": res.data.data.timeStamp,
+          "nonceStr": res.data.data.nonceStr,
+          "package": res.data.data.package,
+          "signType": res.data.data.signType,
+          "paySign": res.data.data.paySign,
+          "success": function (succ) {
+            console.log(succ);
+            wx.switchTab({
+              url: "../home/home"
+            });
+          },
+          "fail": function (err) {
+            console.log(err);
+          },
+        })
+      }
+    })
   },
 
   onCancel: function() {
@@ -96,10 +174,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.data.myMenu = getApp().globalData.myMenu;
-    this.setData({
-      myMenu: this.data.myMenu
-    });
+    var that=this;
+    app.globalData.myMenuNum = 1;
+    wx.request({
+      //获取openid接口
+      url: 'http://120.77.32.233/print/order/list/' + getApp().globalData.myMenuNum,
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionid") //读取cookie
+      },
+      success: function(res) {
+        app.globalData.myMenu = res.data.data;
+        console.log(res.data.data);
+        app.globalData.myMenuNum = getApp().globalData.myMenuNum + 1;
+        that.data.myMenu = getApp().globalData.myMenu;
+        that.setData({
+          myMenu: that.data.myMenu
+        });
+      }
+    })
     console.log(getApp().globalData.myMenu);
   },
 

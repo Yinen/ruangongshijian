@@ -91,9 +91,9 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        wx.redirectTo({ //页面跳转myPosition
-          url: '/pages/myAddress/myAddress',
-        })
+        let pages = getCurrentPages();    //获取当前页面信息栈
+        let currentPage = pages[pages.length - 1]     //获取上一个页面信息栈
+        currentPage.onLoad();
       }
     })
   },
@@ -101,6 +101,33 @@ Page({
   onDefaultcancel: function () {
     this.setData({
       hiddenClickList: true,
+    })
+  },
+
+  del_address:function(e){
+    let address = e.currentTarget.dataset.name;
+    let index = e.currentTarget.dataset.value;
+
+    var that = this;
+    wx.request({
+      url: "http://120.77.32.233/print/address/del/" + that.data.myAddressArray[index].id,
+      header: {
+        "Content-Type": "application/json",
+        "cookie": wx.getStorageSync("sessionid") //读取cookie
+      },
+      method: "POST",
+      success: function (res) {
+        console.log(res);
+        if (res.data.code == 200) {
+          //删除数组中对应的地址，更新界面显示
+          that.data.myAddressArray.splice(index, 1);
+          that.data.myAddressNameArray.splice(index, 1);
+          that.setData({
+            myAddressArray: that.data.myAddressArray,
+            myAddressNameArray: that.data.myAddressNameArray,
+          })
+        }
+      }
     })
   },
 
@@ -180,9 +207,12 @@ Page({
         },
         method: 'POST',
         success: function (res) {
-          wx.redirectTo({ //页面跳转myAddress
-            url: '/pages/myAddress/myAddress',
-          })
+          let pages = getCurrentPages();    //获取当前页面信息栈
+          let currentPage = pages[pages.length - 1]     //获取上一个页面信息栈
+          currentPage.onLoad();
+          // wx.redirectTo({ //页面跳转myAddress
+          //   url: '/pages/myAddress/myAddress',
+          // })
         }
       })
     }

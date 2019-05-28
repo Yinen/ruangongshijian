@@ -8,12 +8,19 @@ modal {
 }
 
 .menu-header {
-  background-color:#F0F8FF;
+  background-color:rgb(248, 251, 253);
   width: 100%;
   height: 30%;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
   padding-left: 10rpx;
+}
+
+.image-style{
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin: 10rpx 10rpx;
 }
 
 .positions-show-text {
@@ -77,6 +84,20 @@ modal {
   line-height: 50rpx;
 }
 
+.link-shop{
+  background: rgb(255, 255, 255);
+  color: rgb(20, 18, 18);
+  width: 200rpx;
+  float: left;
+  margin-left: 2%;
+  line-height: 70rpx;
+  font-size: 14px;
+}
+
+.link-shop::after{
+  border: none;
+}
+
 .delete {
   background: #EE6363;
   color: #fff;
@@ -84,7 +105,7 @@ modal {
   float: right;
   margin-right: 2%;
   line-height: 70rpx;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .pay {
@@ -94,7 +115,7 @@ modal {
   color: #fff;
   vertical-align: middle;
   line-height: 70rpx;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .look {
@@ -103,7 +124,7 @@ modal {
   width: 200rpx;
   height: 70rpx;
   line-height: 70rpx;
-  font-size: 17px;
+  font-size: 14px;
   color: #fff;
 }
 

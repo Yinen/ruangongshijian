@@ -11,7 +11,8 @@
     "pages/myAddress/myAddress",
     "pages/myOrder/myOrder",
     "pages/print-settings/print-settings",
-    "pages/grantEntre/grantEntre"
+    "pages/grantEntre/grantEntre",
+    "pages/historyOrder/historyOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",
